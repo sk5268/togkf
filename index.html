@@ -1,53 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traditional Okinawan Goju-Ryu Karate-Do Federation</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>TOGKF India - Traditional Okinawa Goju Ryu Karate Federation</title>
+    <meta name="description"
+        content="Official website of Traditional Okinawa Goju Ryu Karate Federation (TOGKF) in India. Preserving the legacy of Higaonna Morio Sensei.">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div class="top-bar">
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-    </div>
     <header>
-        <img src="banner.png" alt="TOGKF Banner" class="banner-img">
         <nav>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">Join the TOGKF</a></li>
-                <li><a href="#">Store</a></li>
-                <li><a href="#">Contact Us</a></li>
+            <div class="logo">
+                TOGKF <span>INDIA</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="dojo.html">Dojos</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <img src="hs.png" alt="Four karate masters">
+            <div class="hero-content">
+                <h1>Traditional Okinawa<br>Goju Ryu Karate</h1>
+                <p>The legacy of Higaonna Morio Sensei. A journey of body, mind, and spirit.</p>
+                <a href="dojo.html" class="btn">Find a Dojo</a>
+            </div>
         </section>
 
-        <section class="content">
-            <h2>TRADITIONAL OKINAWAN GOJU RYU AS TAUGHT BY HIGAONNA MORIO SENSEI</h2>
-            <p>Traditional Okinawa Goju Ryu Karate-do is a challenging art. It will test you emotionally, mentally, and physically. But like anything in life the more you put into it, the more you will gain. Through dedicated practice you will become physically strong, and mentally and emotionally resilient. Developing your character, mind, and body is a key goal of the TOGKF.</p>
-            <p>The TOGKF is the guardian of Traditional Okinawa Goju Ryu as it was passed to Higaonna Sensei, and as such, we see it not as a sport, but as a whole way of life. And that is our emphasis: the whole. The goal is to enrich every aspect of who you are.</p>
+        <section class="about-preview fade-in-section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2>Who We Are</h2>
+                        <p>The Traditional Okinawa Goju Ryu Karate do Federation (TOGKF) is the guardian of the art as
+                            passed down to Higaonna Morio Sensei. We are not just a sport organization; we are a
+                            community dedicated to a way of life.</p>
+                        <p>Our goal is to enrich every aspect of who you are through rigorous training and traditional
+                            values.</p>
+                        <a href="about.html" class="btn btn-primary">Discover Our Story</a>
+                    </div>
+                    <div class="about-image">
+                        <!-- Placeholder for an image of Sensei or training -->
+                        <img src="assets/hs.png" alt="Higaonna Morio Sensei">
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="video-section">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/jPEEGVCwtr8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <section class="philosophy fade-in-section">
+            <div class="container">
+                <h2>The Philosophy</h2>
+                <p>"Traditional Okinawa Goju Ryu Karate-do is a challenging art. It will test you emotionally, mentally,
+                    and physically. But like anything in life the more you put into it, the more you will gain."</p>
             </div>
         </section>
     </main>
-    <script src="script.js"></script>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TOGKF India</h3>
+                    <p>Preserving the authentic traditions of Okinawa Goju Ryu Karate-do in India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="dojo.html">Find a Dojo</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>info@togkfindia.com</p>
+                    <p>+91 98765 43210</p>
+                    <p>Mumbai, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TOGKF India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
+
 </html>
