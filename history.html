@@ -44,18 +44,7 @@
         /* ================================================
            CURSOR TRAIL EFFECT
            ================================================ */
-        .cursor-trail {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: difference;
-            background: radial-gradient(circle, var(--history-red) 0%, transparent 70%);
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s ease;
-        }
+
 
         /* ================================================
            FLOATING KARATE ELEMENTS
@@ -217,38 +206,7 @@
             }
         }
 
-        /* Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards 2.5s;
-        }
 
-        .scroll-text {
-            font-size: 0.7rem;
-            letter-spacing: 0.3em;
-            color: var(--history-gold);
-            text-transform: uppercase;
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, var(--history-gold), transparent);
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes scrollPulse {
-            0%, 100% { transform: scaleY(1); opacity: 1; }
-            50% { transform: scaleY(0.5); opacity: 0.5; }
-        }
 
         @keyframes fadeIn {
             to { opacity: 1; }
@@ -554,42 +512,7 @@
         /* ================================================
            PARTICLE EFFECTS
            ================================================ */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
 
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--history-gold);
-            border-radius: 50%;
-            opacity: 0;
-            animation: particleFloat 15s ease-in-out infinite;
-        }
-
-        @keyframes particleFloat {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(720deg);
-                opacity: 0;
-            }
-        }
 
         /* ================================================
            BELT/RANK INDICATOR
@@ -679,8 +602,7 @@
 </head>
 
 <body>
-    <!-- Cursor Trail -->
-    <div class="cursor-trail" id="cursorTrail"></div>
+
 
     <!-- Floating Kanji Elements -->
     <div class="floating-elements">
@@ -690,8 +612,7 @@
         <span class="floating-kanji">柔</span>
     </div>
 
-    <!-- Particles -->
-    <div class="particles" id="particles"></div>
+
 
     <!-- Progress Dots -->
     <div class="progress-container" id="progressDots">
@@ -747,10 +668,7 @@
                 <h1 class="hero-main-title">History of Goju-Ryu</h1>
             </div>
 
-            <div class="scroll-indicator">
-                <span class="scroll-text">Scroll to Begin</span>
-                <div class="scroll-line"></div>
-            </div>
+
         </section>
 
         <!-- ==================== SECTION 1: ORIGINS ==================== -->
@@ -1056,11 +974,7 @@
         // ================================================
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Create particles
-            createParticles();
 
-            // Initialize cursor trail
-            initCursorTrail();
 
             // Initialize scroll animations
             initScrollAnimations();
@@ -1072,58 +986,9 @@
             document.documentElement.style.scrollBehavior = 'smooth';
         });
 
-        // ================================================
-        // PARTICLE SYSTEM
-        // ================================================
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                particle.style.width = (2 + Math.random() * 4) + 'px';
-                particle.style.height = particle.style.width;
-                particlesContainer.appendChild(particle);
-            }
-        }
 
-        // ================================================
-        // CURSOR TRAIL
-        // ================================================
-        function initCursorTrail() {
-            const cursor = document.getElementById('cursorTrail');
-            let mouseX = 0, mouseY = 0;
-            let cursorX = 0, cursorY = 0;
 
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-            });
-
-            function animateCursor() {
-                const dx = mouseX - cursorX;
-                const dy = mouseY - cursorY;
-                
-                cursorX += dx * 0.15;
-                cursorY += dy * 0.15;
-                
-                cursor.style.left = cursorX + 'px';
-                cursor.style.top = cursorY + 'px';
-                
-                requestAnimationFrame(animateCursor);
-            }
-
-            animateCursor();
-
-            // Hide cursor trail on mobile
-            if (window.innerWidth < 768) {
-                cursor.style.display = 'none';
-            }
-        }
 
         // ================================================
         // SCROLL ANIMATIONS
