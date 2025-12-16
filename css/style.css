@@ -152,6 +152,44 @@ header.scrolled .bar {
     background-color: var(--primary-color);
 }
 
+/* Keep header text white on pages that have a dark header (inline style or `.dark` class) */
+header.dark,
+header[style*="#0a0a0a"] {
+    background: var(--primary-color);
+}
+
+header.dark .logo,
+header[style*="#0a0a0a"] .logo,
+header.dark .nav-links li a,
+header[style*="#0a0a0a"] .nav-links li a {
+    color: var(--secondary-color);
+}
+
+header.dark.scrolled,
+header[style*="#0a0a0a"].scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+header.dark.scrolled .logo,
+header[style*="#0a0a0a"].scrolled .logo,
+header.dark.scrolled .nav-links li a,
+header[style*="#0a0a0a"].scrolled .nav-links li a {
+    color: var(--secondary-color);
+}
+
+header.dark .bar,
+header[style*="#0a0a0a"] .bar,
+header.dark.scrolled .bar,
+header[style*="#0a0a0a"].scrolled .bar {
+    background-color: var(--secondary-color);
+}
+
+header.dark .hamburger.active .bar,
+header[style*="#0a0a0a"] .hamburger.active .bar {
+    background-color: var(--secondary-color);
+}
+
 /* --- Hero Section --- */
 .hero {
     min-height: 100vh;
