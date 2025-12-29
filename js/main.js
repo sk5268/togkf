@@ -7,12 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
+            header.classList.toggle('nav-active');
         });
     }
 
     document.querySelectorAll('.nav-links li a').forEach(n => n.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        header.classList.remove('nav-active');
     }));
 
     // Navbar Scroll Effect
@@ -44,4 +46,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.fade-in-section').forEach(section => {
         observer.observe(section);
     });
+
 });
