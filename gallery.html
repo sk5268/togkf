@@ -41,36 +41,24 @@
     <section class="page-header fade-in-section" style="background-color:#f4f4f4; padding:3rem 0; text-align:center;"
       aria-labelledby="gallery-title">
       <div class="container">
-        <h1 id="gallery-title" style="color:#0a0a0a; font-size:3rem;">Gallery</h1>
-        <p style="max-width:700px; margin:1rem auto; color:#666;">
-          Browse photos from seminars, gradings, camps and other TOGKF India events. To contribute images, please get in
-          touch via the Contact page.
-        </p>
+        <h1 id="gallery-title" style="color:#0a0a0a;">Gallery</h1>
       </div>
     </section>
 
-    <section class="content-section fade-in-section" aria-labelledby="event-photos">
-      <div class="container">
-        <h2 id="event-photos">Event Photos</h2>
+    <div id="gallery-container">
+      <!-- Gallery content will be loaded dynamically -->
+    </div>
 
-        <div class="gallery-grid" role="list" aria-label="Event photo grid">
-          <figure class="gallery-item" role="listitem">
-            <img src="assets/gallery1.jpg" alt="Instructor demonstrating technique to students" loading="lazy">
-            <figcaption class="gallery-caption">Seminar — Technique session</figcaption>
-          </figure>
-
-          <figure class="gallery-item" role="listitem">
-            <img src="assets/gallery2.jpg" alt="Group photo from the summer training camp" loading="lazy">
-            <figcaption class="gallery-caption">Summer Training Camp — Group photo</figcaption>
-          </figure>
-
-          <figure class="gallery-item" role="listitem">
-            <img src="assets/gallery3.jpg" alt="Students lined up after a grading event" loading="lazy">
-            <figcaption class="gallery-caption">Grading and Awards — Honbu Dojo</figcaption>
-          </figure>
-        </div>
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="Galllery Image Large">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
       </div>
-    </section>
+      <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+      <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+    </div>
   </main>
 
   <footer>
@@ -108,6 +96,8 @@
     </div>
   </footer>
 
+  <script src="js/gallery-data.js"></script>
+  <script src="js/gallery-loader.js"></script>
   <script src="js/main.js"></script>
 </body>
 
