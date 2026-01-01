@@ -7,6 +7,7 @@
     <title>History - TOGKF India | The Journey of Goju-Ryu</title>
     <meta name="description"
         content="Explore the rich history of Traditional Okinawa Goju Ryu Karate-do and TOGKF India through an immersive visual journey.">
+    <link rel="icon" type="image/png" href="assets/togkf_logo.png">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -20,6 +21,11 @@
             --history-gold: #d4a574;
             --history-cream: #f5f0e8;
             --history-ink: #1a1a2e;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
         }
 
         /* Hide scrollbar for smooth experience */
@@ -112,7 +118,7 @@
            HERO SECTION - DRAMATIC ENTRANCE
            ================================================ */
         .history-hero {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -120,6 +126,8 @@
             position: relative;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
             overflow: hidden;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
 
         .history-hero::before {
@@ -261,12 +269,14 @@
            SECTION STYLES - SCROLL TRIGGERED
            ================================================ */
         .history-section {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             padding: 100px 0;
             overflow: hidden;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
 
         .section-content {
@@ -508,7 +518,7 @@
            CONCLUSION SECTION
            ================================================ */
         .conclusion-section {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -516,6 +526,8 @@
             position: relative;
             text-align: center;
             padding: 100px 20px;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
         }
 
         .conclusion-content {
@@ -621,6 +633,13 @@
             .section-era {
                 justify-content: center;
             }
+
+            .history-section,
+            .history-hero,
+            .conclusion-section {
+                height: auto;
+                min-height: 100vh;
+            }
         }
 
         @media (max-width: 480px) {
@@ -640,6 +659,10 @@
             .section-main-title {
                 font-size: 2rem;
             }
+        }
+
+        footer {
+            scroll-snap-align: end;
         }
     </style>
 </head>
