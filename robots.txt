@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /*.jpg$
+Disallow: /*.jpeg$
+Disallow: /*.png$
+Sitemap: https://www.togkf.in/sitemap.xml
