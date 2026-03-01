@@ -379,48 +379,105 @@
                 </div>
 
                 <div class="karate-element">
-                    <!-- Karate stance silhouette -->
+                    <!-- Detailed Globe and Belt -->
                     <svg class="karate-svg" viewBox="0 0 200 200">
                         <defs>
                             <linearGradient id="gradGlobe" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#c41e3a" />
-                                <stop offset="100%" style="stop-color:#d4a574" />
+                                <stop offset="0%" style="stop-color:#d4a574" />
+                                <stop offset="50%" style="stop-color:#c41e3a" />
+                                <stop offset="100%" style="stop-color:#7a1528" />
                             </linearGradient>
+
+                            <radialGradient id="globeSphere" cx="40%" cy="40%" r="60%">
+                                <stop offset="0%" stop-color="#d4a574" stop-opacity="0.15" />
+                                <stop offset="60%" stop-color="#c41e3a" stop-opacity="0.05" />
+                                <stop offset="100%" stop-color="#050508" stop-opacity="0.8" />
+                            </radialGradient>
+
+                            <radialGradient id="glowG" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#c41e3a" stop-opacity="0.2" />
+                                <stop offset="100%" stop-color="#c41e3a" stop-opacity="0" />
+                            </radialGradient>
+
+                            <filter id="beltShadow" x="-10%" y="-10%" width="120%" height="120%">
+                                <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.8" />
+                            </filter>
                         </defs>
-                        <!-- Globe -->
-                        <circle cx="100" cy="90" r="60" fill="none" stroke="url(#gradGlobe)" stroke-width="3" />
-                        <!-- Latitude and Longitude Lines -->
-                        <ellipse cx="100" cy="90" rx="30" ry="60" fill="none" stroke="url(#gradGlobe)"
-                            stroke-width="1.5" opacity="0.4" />
-                        <ellipse cx="100" cy="90" rx="60" ry="20" fill="none" stroke="url(#gradGlobe)"
-                            stroke-width="1.5" opacity="0.4" />
-                        <line x1="100" y1="30" x2="100" y2="150" stroke="url(#gradGlobe)" stroke-width="1.5"
-                            opacity="0.4" />
-                        <line x1="40" y1="90" x2="160" y2="90" stroke="url(#gradGlobe)" stroke-width="1.5"
-                            opacity="0.4" />
 
-                        <!-- Karate Belt -->
-                        <!-- Belt wrapped -->
-                        <path d="M 35,90 C 70,115 130,115 165,90" fill="none" stroke="url(#gradGlobe)" stroke-width="10"
-                            stroke-linecap="round" />
-                        <path d="M 35,90 C 70,115 130,115 165,90" fill="none" stroke="#0a0a1a" stroke-width="6"
-                            stroke-linecap="round" />
+                        <!-- Background glow -->
+                        <circle cx="100" cy="90" r="85" fill="url(#glowG)" />
 
-                        <!-- Tails -->
-                        <path d="M 85,103 Q 75,150 70,170" fill="none" stroke="url(#gradGlobe)" stroke-width="10"
-                            stroke-linecap="round" />
-                        <path d="M 85,103 Q 75,150 70,170" fill="none" stroke="#0a0a1a" stroke-width="6"
-                            stroke-linecap="round" />
+                        <!-- Outer decorative rings -->
+                        <circle cx="100" cy="90" r="75" fill="none" stroke="url(#gradGlobe)" stroke-width="1"
+                            stroke-dasharray="4 8" opacity="0.5" />
+                        <circle cx="100" cy="90" r="68" fill="none" stroke="url(#gradGlobe)" stroke-width="0.5"
+                            opacity="0.3" />
 
-                        <path d="M 115,103 Q 125,150 130,170" fill="none" stroke="url(#gradGlobe)" stroke-width="10"
-                            stroke-linecap="round" />
-                        <path d="M 115,103 Q 125,150 130,170" fill="none" stroke="#0a0a1a" stroke-width="6"
-                            stroke-linecap="round" />
+                        <g transform="translate(0, 5)">
+                            <!-- Solid Globe Body for 3D effect -->
+                            <circle cx="100" cy="85" r="60" fill="url(#globeSphere)" />
+                            <circle cx="100" cy="85" r="60" fill="none" stroke="url(#gradGlobe)" stroke-width="2" />
 
-                        <!-- Knot -->
-                        <polygon points="90,95 110,95 115,115 85,115" fill="#0a0a1a" stroke="url(#gradGlobe)"
-                            stroke-width="3" stroke-linejoin="round" />
-                        <line x1="95" y1="95" x2="105" y2="115" stroke="url(#gradGlobe)" stroke-width="2" />
+                            <!-- High-tech/Elegant Graticule -->
+                            <!-- Longitudes -->
+                            <ellipse cx="100" cy="85" rx="20" ry="60" fill="none" stroke="url(#gradGlobe)"
+                                stroke-width="1" opacity="0.4" />
+                            <ellipse cx="100" cy="85" rx="40" ry="60" fill="none" stroke="url(#gradGlobe)"
+                                stroke-width="1" opacity="0.5" />
+                            <line x1="100" y1="25" x2="100" y2="145" stroke="url(#gradGlobe)" stroke-width="1"
+                                opacity="0.6" />
+
+                            <!-- Latitudes -->
+                            <ellipse cx="100" cy="55" rx="51.9" ry="15" fill="none" stroke="url(#gradGlobe)"
+                                stroke-width="1" opacity="0.4" />
+                            <ellipse cx="100" cy="85" rx="60" ry="18" fill="none" stroke="url(#gradGlobe)"
+                                stroke-width="1" opacity="0.6" />
+                            <ellipse cx="100" cy="115" rx="51.9" ry="15" fill="none" stroke="url(#gradGlobe)"
+                                stroke-width="1" opacity="0.4" />
+
+                            <!-- Nodes / International Dojos connecting -->
+                            <g fill="#d4a574">
+                                <circle cx="100" cy="25" r="2.5" />
+                                <circle cx="100" cy="145" r="2.5" />
+                                <circle cx="60" cy="85" r="2" opacity="0.8" />
+                                <circle cx="140" cy="85" r="2" opacity="0.8" />
+                                <circle cx="78" cy="55" r="1.5" opacity="0.6" />
+                                <circle cx="122" cy="55" r="1.5" opacity="0.6" />
+                                <circle cx="70" cy="115" r="1.5" opacity="0.6" />
+                                <circle cx="130" cy="115" r="1.5" opacity="0.6" />
+                            </g>
+                        </g>
+
+                        <g transform="translate(0, 5)" filter="url(#beltShadow)">
+                            <!-- Belt Front Wraps (Left and Right) coming to the center -->
+                            <!-- Left wrap -->
+                            <path d="M 36,88 C 30,120 95,120 100,105 C 100,100 45,80 40,85" fill="#0c0c0c"
+                                stroke="url(#gradGlobe)" stroke-width="1.5" stroke-linejoin="round" />
+
+                            <!-- Right wrap -->
+                            <path d="M 164,88 C 170,120 105,120 100,105 C 100,100 155,80 160,85" fill="#080808"
+                                stroke="url(#gradGlobe)" stroke-width="1.5" stroke-linejoin="round" />
+
+                            <!-- Left Belt Tail -->
+                            <path d="M 90,103 C 70,135 60,165 65,185 C 72,188 84,180 86,173 C 85,145 102,115 97,100 Z"
+                                fill="#0a0a0a" stroke="url(#gradGlobe)" stroke-width="1.5" stroke-linejoin="round" />
+
+                            <!-- Right Belt Tail -->
+                            <path
+                                d="M 110,103 C 130,135 140,165 135,185 C 128,188 116,180 114,173 C 115,145 98,115 103,100 Z"
+                                fill="#0a0a0a" stroke="url(#gradGlobe)" stroke-width="1.5" stroke-linejoin="round" />
+
+                            <!-- Dynamic Belt Knot -->
+                            <path d="M 88,96 L 112,94 L 117,112 L 83,114 Z" fill="#111" stroke="url(#gradGlobe)"
+                                stroke-width="2" stroke-linejoin="round" />
+                            <path d="M 88,96 L 112,94 L 117,112 L 83,114 Z" fill="url(#gradGlobe)" opacity="0.1" />
+
+                            <!-- Knot Details / Creases -->
+                            <path d="M 95,95 C 98,105 103,110 108,113" fill="none" stroke="url(#gradGlobe)"
+                                stroke-width="1" opacity="0.7" />
+                            <path d="M 90,98 C 93,105 97,110 102,113" fill="none" stroke="url(#gradGlobe)"
+                                stroke-width="0.5" opacity="0.5" />
+                        </g>
                     </svg>
                 </div>
             </div>
