@@ -18,15 +18,24 @@
     content="Upcoming seminars, gradings and events organized by TOGKF India. Find dates, registration and past event highlights." />
   <link rel="icon" type="image/png" href="assets/togkf_logo.png">
   <link rel="stylesheet" href="css/style.css" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6S437FDSE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-C6S437FDSE');
+  </script>
 </head>
 
 <body>
   <header class="dark" role="banner">
     <nav role="navigation" aria-label="Main Navigation">
-      <div class="logo">
+      <a href="index.html" class="logo">
         <img src="assets/togkf_logo.png" alt="TOGKF India logo" />
         TOGKF <span>INDIA</span>
-      </div>
+      </a>
       <ul class="nav-links">
         <li><a href="/togkf/index">Home</a></li>
         <li><a href="/togkf/about">About</a></li>
@@ -49,54 +58,22 @@
       style="background-color: #f4f4f4; padding: 3rem 0; text-align: center;">
       <div class="container">
         <h1 style="color: #0a0a0a; font-size: 3rem;">Events</h1>
-        <p style="max-width: 700px; margin: 1rem auto; color: #666;">
-          Stay up to date with TOGKF India seminars, gradings, workshops and community gatherings. Find upcoming
-          dates, registration links and past event highlights.
+        <p style="max-width: 700px; margin: 1rem auto; color: #666; font-size: 1.1rem;">
+          Stay up to date with TOGKF India seminars, gradings, and workshops.
+          We are in the process of updating our calendar for the upcoming season.
         </p>
       </div>
     </section>
 
-    <section class="content-section fade-in-section" aria-labelledby="upcoming-events">
+    <section class="content-section fade-in-section" style="padding: 10rem 0; text-align: center;">
       <div class="container">
-        <h2 id="upcoming-events">Upcoming Events</h2>
-
-        <div class="card-grid">
-          <article class="card" aria-labelledby="evt-1-title">
-            <h3 id="evt-1-title">TOGKF National Seminar 2025</h3>
-            <p class="event-date"><time datetime="2025-03-12">12–14 March 2025</time> • Mumbai</p>
-            <p class="event-meta">A three-day seminar covering kata refinement, bunkai, kumite principles and
-              conditioning
-              with senior instructors. Separate classes for juniors and seniors.</p>
-            <p style="margin-top: 1rem; color: #444;">Open to students from all affiliated dojos. Early registration is
-              recommended — spaces are limited.</p>
-            <div class="event-actions">
-              <a href="#" class="btn btn-primary">Register</a>
-              <a href="#" class="btn">Event Details</a>
-            </div>
-          </article>
-
-          <article class="card" aria-labelledby="evt-2-title">
-            <h3 id="evt-2-title">Black Belt Grading</h3>
-            <p class="event-date"><time datetime="2025-04-20">20 April 2025</time> • Hyderabad</p>
-            <p class="event-meta">Official TOGKF grading for kyu and dan candidates. Instructor nomination required.</p>
-            <p style="margin-top: 1rem; color: #444;">Candidates must be nominated by their dojo head and meet the
-              eligibility criteria prior to application.</p>
-            <div class="event-actions">
-              <a href="#" class="btn">Nominate a Candidate</a>
-              <a href="#" class="btn">Grading Guidelines</a>
-            </div>
-          </article>
-
-          <article class="card" aria-labelledby="evt-3-title">
-            <h3 id="evt-3-title">Regional Workshop — Chennai</h3>
-            <p class="event-date"><time datetime="2025-02-06">6–7 February 2025</time> • Chennai</p>
-            <p class="event-meta">Weekend workshop focusing on fundamental techniques, partner work and conditioning for
-              beginners and intermediate students.</p>
-            <div class="event-actions">
-              <a href="#" class="btn btn-primary">Register</a>
-              <a href="#" class="btn">Venue Info</a>
-            </div>
-          </article>
+        <h2 id="upcoming-events" style="font-size: 3rem; margin-bottom: 2rem;">Stay Tuned</h2>
+        <p style="font-size: 1.4rem; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+          We are currently scheduling our next series of national seminars, workshops, and black belt gradings.
+          Check back soon for upcoming dates and registration details.
+        </p>
+        <div style="margin-top: 4rem;">
+          <a href="contact.html" class="btn btn-primary">Get Notified</a>
         </div>
       </div>
     </section>
