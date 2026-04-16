@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanbo Ken Kai - TOGKF India</title>
+    <meta name="description" content="Sanbo Ken Kai Goju Ryu Karate-Do - Affiliated to TOGKF.">
+    <link rel="icon" type="image/png" href="assets/togkf_logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6S437FDSE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-C6S437FDSE');
+    </script>
+    <style>
+        /* ================================================
+           SKGK PAGE — FULL-SCREEN SLIDE STYLE
+        ================================================ */
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f7f7f7;
+        }
+
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #f7f7f7;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        /* --- Shared Slide --- */
+        .skgk-slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .skgk-slide .inner {
+            max-width: 800px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        /* --- Progress Dots --- */
+        .skgk-progress {
+            position: fixed;
+            top: 50%;
+            right: 24px;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .skgk-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skgk-dot.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: scale(1.4);
+        }
+
+        /* ============================================
+           SLIDE 1 — INTRO
+        ============================================ */
+        .slide-intro {
+            background: var(--bg-dark);
+        }
+
+        .slide-intro .inner {
+            max-width: 1000px;
+        }
+
+        .slide-intro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 30%, rgba(211, 47, 47, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .slide-intro .logo-img {
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 0.3s forwards;
+        }
+
+        .slide-intro h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            letter-spacing: 3px;
+            line-height: 1.15;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 0.5s forwards;
+        }
+
+        .slide-intro .tagline {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 0.7s forwards;
+        }
+
+        .slide-intro .desc {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            max-width: 850px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease 0.9s forwards;
+        }
+
+        .slide-intro .desc p+p {
+            margin-top: 1rem;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           SLIDE 2 — CHIEF INSTRUCTOR
+        ============================================ */
+        .slide-chief {
+            background: #fff;
+        }
+
+        .slide-chief .inner {
+            max-width: 1400px;
+        }
+
+        .chief-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .chief-header {
+            margin-bottom: 2.2rem;
+        }
+
+        .chief-columns {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 4rem;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .founder-label {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 6px;
+            white-space: nowrap;
+        }
+
+        .slide-chief h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            line-height: 1.15;
+            margin: 0.4rem 0 0;
+        }
+
+        .chief-photo {
+            width: 280px;
+            height: 370px;
+            border-radius: 12px;
+            background: #f0f0f0;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .chief-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
+
+        .chief-photo span {
+            color: #bbb;
+            font-size: 0.85rem;
+        }
+
+        .chief-bio {
+            color: rgba(0, 0, 0, 0.5);
+            font-size: 1rem;
+            line-height: 1.85;
+            border-left: 2px solid rgba(0, 0, 0, 0.08);
+            padding-left: 2.5rem;
+            padding-top: 0.25rem;
+        }
+
+        .chief-bio p+p {
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 968px) {
+            .chief-wrapper {
+                align-items: center;
+                text-align: center;
+            }
+
+            .chief-header {
+                text-align: center;
+            }
+
+            .chief-columns {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+                justify-items: center;
+            }
+
+            .chief-bio {
+                border-left: none;
+                padding-left: 0;
+                text-align: center;
+                max-width: 600px;
+            }
+        }
+
+        /* ============================================
+           SLIDE 3 — SENIOR INSTRUCTORS
+        ============================================ */
+        .slide-seniors {
+            background: #f5f5f5;
+        }
+
+        .slide-seniors .label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, 0.3);
+            margin-bottom: 3.5rem;
+        }
+
+        .seniors-row {
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+            flex-wrap: wrap;
+        }
+
+        .senior-item {
+            text-align: center;
+        }
+
+        .senior-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #e8e8e8;
+            border: 2px solid #ddd;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .senior-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .senior-photo span {
+            color: #bbb;
+            font-size: 0.8rem;
+        }
+
+        .senior-item h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.35rem;
+            letter-spacing: 2px;
+        }
+
+        .senior-item .role {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, 0.35);
+            margin: 0;
+        }
+
+        /* ============================================
+           SLIDE 3 COMBINED — SENIORS + HONBU
+        ============================================ */
+        .honbu-divider {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 3rem 0 2.5rem;
+        }
+
+        .honbu-divider::before,
+        .honbu-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .honbu-divider-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            white-space: nowrap;
+        }
+
+        .honbu-row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .split-divider {
+            width: 1px;
+            background: rgba(0, 0, 0, 0.12);
+            margin: 0 1rem;
+            align-self: stretch;
+            flex-shrink: 0;
+        }
+
+        /* Two-column split layout for seniors slide */
+        .seniors-split {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 5%;
+        }
+
+        .seniors-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+            padding: 0 1rem;
+        }
+
+        .seniors-col-label {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 6px;
+            white-space: nowrap;
+            margin-bottom: 2.5rem;
+            align-self: center;
+        }
+
+        .seniors-cards-row {
+            display: flex;
+            gap: 4.5rem;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        .slide-seniors .split-divider {
+            width: 1px;
+            background: rgba(0, 0, 0, 0.12);
+            align-self: stretch;
+            flex-shrink: 0;
+            margin: 0 1rem;
+        }
+
+        /* red colour for Sensei / Sempai titles inside instructor names */
+        .instructor-title {
+            color: var(--accent-color);
+        }
+
+        /* wider inner for this slide */
+        .slide-seniors .inner {
+            max-width: 1250px;
+        }
+
+        @media (max-width: 820px) {
+            .seniors-row {
+                flex-wrap: wrap;
+            }
+
+            .split-divider {
+                display: none;
+            }
+
+            .top-label-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .top-label-left,
+            .top-label-right {
+                margin: 0;
+            }
+        }
+
+        /* .honbu cards intentionally same size as .rect-card */
+
+        /* ============================================
+           SLIDE 4 & MORE
+        ============================================ */
+        .slide-kuro-obi {
+            background: #fff;
+        }
+
+        .slide-assistants {
+            background: #f5f5f5;
+        }
+
+        .slide-kuro-obi .label,
+        .slide-assistants .label {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 6px;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        .asst-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 150px);
+            justify-content: center;
+            gap: 4rem 5rem;
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding: 0 40px;
+        }
+
+        .asst-item {
+            text-align: center;
+            width: 150px;
+        }
+
+        .asst-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #efefef;
+            border: 2px solid #eaeaea;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .asst-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .asst-photo span {
+            color: #ccc;
+            font-size: 0.55rem;
+        }
+
+        .asst-item h4 {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+            letter-spacing: 1.5px;
+        }
+
+        .asst-item .role {
+            font-size: 0.55rem;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .senior-photo.rect-card {
+            border-radius: 12px;
+            width: 250px;
+            height: 330px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eaeaea;
+        }
+
+        .senior-photo.rect-card.asst {
+            width: 160px;
+            height: 210px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .skgk-progress {
+                display: none;
+            }
+
+            .seniors-row {
+                gap: 3rem;
+            }
+
+            .senior-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .senior-photo.rect-card {
+                width: 180px;
+                height: 240px;
+            }
+
+            .senior-photo.rect-card.asst {
+                width: 140px;
+                height: 190px;
+            }
+
+            .asst-grid {
+                grid-template-columns: repeat(3, 120px);
+                gap: 2.5rem 2.5rem;
+            }
+
+            .asst-photo {
+                width: 110px;
+                height: 110px;
+            }
+
+            .asst-item {
+                width: 120px;
+            }
+
+            .skgk-slide {
+                min-height: 100vh;
+                height: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .asst-grid {
+                grid-template-columns: repeat(2, 110px);
+                gap: 2rem 2rem;
+            }
+
+            .asst-photo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .asst-item {
+                width: 100px;
+            }
+
+            .seniors-row {
+                gap: 2.5rem;
+            }
+        }
+
+        footer {
+            scroll-snap-align: end;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="dark">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/togkf_logo.png" alt="TOGKF Logo">
+                TOGKF <span>INDIA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/togkf/index">Home</a></li>
+                <li><a href="/togkf/about">About</a></li>
+                <li><a href="/togkf/history">History</a></li>
+                <li><a href="/togkf/dojo">Dojos</a></li>
+                <li><a href="/togkf/events">Events</a></li>
+                <li><a href="/togkf/gallery">Gallery</a></li>
+                <li><a href="/togkf/contact">Contact</a></li>
+                <li><a href="skgk.html" class="active">SKGK</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Progress Dots -->
+    <div class="skgk-progress" id="skgkProgress">
+        <div class="skgk-dot active" data-slide="0"></div>
+        <div class="skgk-dot" data-slide="1"></div>
+        <div class="skgk-dot" data-slide="2"></div>
+        <div class="skgk-dot" data-slide="3"></div>
+        <div class="skgk-dot" data-slide="4"></div>
+    </div>
+
+    <main>
+        <!-- SLIDE 1: Intro -->
+        <section class="skgk-slide slide-intro" data-slide-index="0">
+            <div class="inner">
+                <img src="assets/skgk.png" alt="SKGK Logo" class="logo-img">
+                <h1>Sanbo Ken Kai<br>Goju Ryu Karate-Do</h1>
+                <p class="tagline">Affiliated to TOGKF &middot; Est. 2015</p>
+                <div class="desc">
+                    <p>Sanbo Ken Kai Gojuryu was established in 2015 with a dedication to preserving and spreading
+                        traditional karate and the Higaonna Sensei system. Guided by our founder and chief instructor
+                        since day one, the dojo is built on a foundation of mutual respect, strict discipline, and
+                        continuous self-improvement.</p>
+                    <p>We are a dedicated community where both children and adults train to cultivate mental focus,
+                        physical resilience, and strong character. By emphasizing the authentic techniques and core
+                        values of Gojuryu, our practice focuses on lifelong personal growth rather than just sport.
+                        Reflecting our commitment to these traditional roots, we have been proudly affiliated with TOGKF
+                        since 2023.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 2: Chief Instructor -->
+        <section class="skgk-slide slide-chief" data-slide-index="1">
+            <div class="inner">
+                <div class="chief-wrapper">
+                    <div class="chief-header">
+                        <h2><span class="instructor-title">Sensei</span> Vijayakumar M</h2>
+                    </div>
+                    <div class="chief-columns">
+                        <div class="chief-left-col"
+                            style="display: flex; flex-direction: column; align-items: flex-start;">
+                            <div class="chief-photo">
+                                <img src="assets/instructors/vijay.png" alt="Sensei Vijay Kumar M">
+                            </div>
+                            <div class="chief-credentials"
+                                style="margin-top: 1.5rem; text-align: left; white-space: nowrap; color: rgba(0,0,0,0.7); font-size: 1.05rem; line-height: 1.6;">
+                                <span
+                                    style="font-weight: 700; color: var(--accent-color); text-transform: uppercase; font-size: 1.25rem; letter-spacing: 2px;">Founder
+                                    and Chief Instructor</span><br>
+                                4th Dan Karate Okinawa Goju Ryu TOGKF, Japan<br>
+                                2nd Dan Kobudo, Okinawa, Japan
+                            </div>
+                        </div>
+                        <div class="chief-bio">
+                            <p>Sensei Vijay Kumar M’s Karate-Do journey began in 1996 in Chennai. His foundational years
+                                were deeply shaped by his first teacher, Sempai Mohan (a student of Shihan M.
+                                Deivasigamani), and particularly by Sempai Balachandran, who dedicated extensive time to
+                                personally training him. During this time, he was highly praised by his seniors for his
+                                powerful and aggressive kicks, especially his mae-geri. Driven by this strong
+                                mentorship,
+                                he attended an International Training Camp under Grand Master Young Ku Yun in 1997. He
+                                achieved his Goju Ryu Shodan in 2000, having already earned his instructor’s license in
+                                1999.</p>
+                            <p>His capabilities quickly led to significant opportunities, including teaching his first
+                                school classes and an appointment as an Assistant Instructor training Indian Customs
+                                Officers in self-defense. He earned his Nidan in 2002 and his Sandan in 2013. Although
+                                he had moved to Hyderabad to build his professional career, he was more interested in
+                                practicing Karate, leading him to establish his own dojo there that same year. Nurturing
+                                a long-standing passion for traditional weaponry, Sensei Vijay also trained under Renshi
+                                Robert of Okinawan Shorin-Ryu Shorinkan, successfully achieving his Kobudo Shodan in
+                                2017. To deeply understand Sanchin and Tensho, the core katas of Goju Ryu, Sensei Vijay
+                                also practices Yoga breathing techniques.</p>
+                            <p>Throughout his career, he has held prominent leadership positions, such as the Chief
+                                Instructor of Telangana (joining Ohshikai Japan Goju Ryu India under Shihan Pratap Chand
+                                Katoch in 2014) and later serving as the South India Chief Incharge. It was his
+                                long-held dream to train under the legendary Shihan Morio Higaonna—a dream that was
+                                realized in 2023 when he joined TOGKF. He has additionally traveled to many countries to
+                                train under TOGKF Senior Instructors from Okinawa, Japan, and various other Goju Ryu
+                                teachers. Today, leading Sanbo Ken Kai, Sensei Vijay draws on his rich heritage and
+                                the immense dedication of his early mentors to guide his students along the authentic,
+                                holistic path of traditional Okinawan Goju Ryu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 3: Senior Instructors + Honbu Dojo Admin -->
+        <section class="skgk-slide slide-seniors" data-slide-index="2">
+            <div class="inner">
+
+                <div class="seniors-split">
+                    <!-- Left column: Senior Instructors -->
+                    <div class="seniors-col">
+                        <span class="seniors-col-label">Senior Instructors</span>
+                        <div class="seniors-cards-row">
+                            <div class="senior-item">
+                                <div class="senior-photo rect-card">
+                                    <img src="assets/instructors/anil.jpeg" alt="Sensei Anil Kumar M"
+                                        onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'">
+                                </div>
+                                <h3><span class="instructor-title">Sensei</span> Anil Kumar M</h3>
+                                <p class="role">3rd Dan</p>
+                                <p class="role">Senior Instructor</p>
+                            </div>
+                            <div class="senior-item">
+                                <div class="senior-photo rect-card">
+                                    <img src="assets/instructors/tulasi.png" alt="Sensei Naga Tulasi R"
+                                        onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'">
+                                </div>
+                                <h3><span class="instructor-title">Sensei</span> Naga Tulasi R</h3>
+                                <p class="role">3rd Dan</p>
+                                <p class="role">Senior Instructor</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vertical separator -->
+                    <div class="split-divider"></div>
+
+                    <!-- Right column: Honbu Dojo Instructor -->
+                    <div class="seniors-col">
+                        <span class="seniors-col-label">Honbu Dojo Instructor</span>
+                        <div class="seniors-cards-row">
+                            <div class="senior-item">
+                                <div class="senior-photo rect-card honbu">
+                                    <img src="assets/instructors/srimadhava.png" alt="Sempai Srimadhava K"
+                                        onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'">
+                                </div>
+                                <h3><span class="instructor-title">Sempai</span> SriMadhava K</h3>
+                                <p class="role">2nd Dan</p>
+                                <p class="role">Admin Secretary</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SLIDE 4: Assistant Instructors -->
+        <section class="skgk-slide slide-assistants" data-slide-index="3">
+            <div class="inner" style="max-width: 1200px;">
+                <p class="label">Assistant Instructors</p>
+                <div class="seniors-row" style="gap: 5.5rem; flex-wrap: nowrap; margin-top: 1.5rem;">
+                    <div class="senior-item" style="flex: 1; min-width: 0;">
+                        <div class="senior-photo rect-card" style="width: 210px; height: 280px;">
+                            <img src="assets/instructors/vikranth.jpeg" alt="Sempai Vikranth R"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'">
+                        </div>
+                        <h4
+                            style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 0.3rem; letter-spacing: 1px;">
+                            <span class="instructor-title">Sempai</span> Vikranth R
+                        </h4>
+                        <p class="role"
+                            style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(0, 0, 0, 0.35); margin: 0;">
+                            Honbu Dojo</p>
+                    </div>
+                    <div class="senior-item" style="flex: 1; min-width: 0;">
+                        <div class="senior-photo rect-card" style="width: 210px; height: 280px;">
+                            <img src="assets/instructors/vishwanath.png" alt="Sempai Vishwanath M"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'">
+                        </div>
+                        <h4
+                            style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 0.3rem; letter-spacing: 1px;">
+                            <span class="instructor-title">Sempai</span> Vishwanath M
+                        </h4>
+                        <p class="role"
+                            style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(0, 0, 0, 0.35); margin: 0;">
+                            Honbu Dojo</p>
+                    </div>
+                    <div class="senior-item" style="flex: 1; min-width: 0;">
+                        <div class="senior-photo rect-card" style="width: 210px; height: 280px;">
+                            <img src="assets/instructors/tilak.jpeg" alt="Sempai Tilak Ramakanth"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'">
+                        </div>
+                        <h4
+                            style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 0.3rem; letter-spacing: 1px;">
+                            <span class="instructor-title">Sempai</span> Tilak Ramakanth M
+                        </h4>
+                        <p class="role"
+                            style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(0, 0, 0, 0.35); margin: 0;">
+                            Honbu Dojo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: Kuro Obi's -->
+        <section class="skgk-slide slide-kuro-obi" data-slide-index="4">
+            <div class="inner">
+                <p class="label">Kuro Obi</p>
+                <div class="asst-grid">
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/harshitha.jpeg" alt="Harshitha R"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Harshitha R</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/renuka.jpeg" alt="Renuka G"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Renuka G</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/chetan.jpeg" alt="Chetan"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Chetan</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/harsha.jpeg" alt=" Shri Harsha P"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Shri Harsha P</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/maha.jpeg" alt="Maha Lakshmi K"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Maha Lakshmi</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/siddhartha.jpeg" alt="Sai Siddhartha"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Siddhartha B</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/gopal.png" alt="Sai Gopal M"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Sai Gopal M</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/mukesh.jpeg" alt="Mukesh Sai"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Mukesh Sai</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/karthikeya.jpeg" alt="Karthikeya R"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Karthikeya</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/asmith.jpeg" alt="Asmith"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Asmith</h4>
+                    </div>
+                    <div class="asst-item">
+                        <div class="asst-photo"><img src="assets/kuro_obi/vignesh.jpeg" alt="Vignesh"
+                                onerror="this.src='assets/skgk.png'; this.style.opacity='0.2'"></div>
+                        <h4>Vignesh</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TOGKF India</h3>
+                    <p>Preserving the authentic traditions of Okinawa Goju Ryu Karate-do in India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Explore</h3>
+                    <ul class="footer-explore-grid">
+                        <li><a href="/togkf/index">Home</a></li>
+                        <li><a href="/togkf/about">About Us</a></li>
+                        <li><a href="/togkf/history">History</a></li>
+                        <li><a href="/togkf/dojo">Find a Dojo</a></li>
+                        <li><a href="/togkf/events">Events</a></li>
+                        <li><a href="/togkf/gallery">Gallery</a></li>
+                        <li><a href="/togkf/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><a href="tel:+919989903236">+91 99899 03236</a></p>
+                    <p>Hyderabad, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TOGKF India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Progress dots — highlight active slide on scroll
+        (function () {
+            const slides = document.querySelectorAll('.skgk-slide');
+            const dots = document.querySelectorAll('.skgk-dot');
+
+            if (!slides.length || !dots.length) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const idx = entry.target.dataset.slideIndex;
+                        dots.forEach(d => d.classList.remove('active'));
+                        const activeDot = document.querySelector(`.skgk-dot[data-slide="${idx}"]`);
+                        if (activeDot) activeDot.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            slides.forEach(s => observer.observe(s));
+
+            // Click dots to scroll
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const target = document.querySelector(`.skgk-slide[data-slide-index="${dot.dataset.slide}"]`);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
