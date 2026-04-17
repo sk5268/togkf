@@ -567,12 +567,55 @@
 
         /* --- Responsive --- */
         @media (max-width: 768px) {
+            html {
+                scroll-snap-type: none;
+            }
+
             .skgk-progress {
                 display: none;
             }
 
+            .skgk-slide {
+                min-height: 100vh;
+                height: auto;
+                align-items: flex-start;
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+
+            .skgk-slide .inner {
+                max-width: 100%;
+            }
+
             .seniors-row {
                 gap: 3rem;
+            }
+
+            .seniors-split {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                padding: 0;
+            }
+
+            .seniors-cards-row {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+
+            .chief-left-col {
+                align-items: center !important;
+            }
+
+            .chief-credentials {
+                text-align: center !important;
+                white-space: normal !important;
+                font-size: 0.95rem !important;
+            }
+
+            .chief-bio {
+                padding-right: 0;
             }
 
             .senior-photo {
@@ -604,13 +647,32 @@
                 width: 120px;
             }
 
-            .skgk-slide {
-                min-height: 100vh;
-                height: auto;
+            .slide-assistants .seniors-row {
+                flex-wrap: wrap !important;
+                gap: 2rem !important;
+                justify-content: center;
+            }
+
+            .slide-assistants .senior-item {
+                flex: 0 1 220px !important;
+            }
+
+            .slide-assistants .senior-photo.rect-card {
+                width: 180px !important;
+                height: 240px !important;
             }
         }
 
         @media (max-width: 480px) {
+            .slide-intro .logo-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .slide-intro .tagline {
+                letter-spacing: 2px;
+            }
+
             .asst-grid {
                 grid-template-columns: repeat(2, 110px);
                 gap: 2rem 2rem;
@@ -627,6 +689,19 @@
 
             .seniors-row {
                 gap: 2.5rem;
+            }
+
+            .seniors-cards-row {
+                gap: 1.5rem;
+            }
+
+            .slide-assistants .senior-item {
+                flex-basis: 100% !important;
+            }
+
+            .slide-assistants .senior-photo.rect-card {
+                width: 160px !important;
+                height: 220px !important;
             }
         }
 
