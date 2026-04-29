@@ -23,19 +23,20 @@
 <body>
     <header class="dark">
         <nav>
-            <a href="index.html" class="logo">
+            <a href="/index" class="logo">
                 <img src="assets/togkf_logo.png" alt="TOGKF Logo">
                 TOGKF <span>INDIA</span>
             </a>
             <ul class="nav-links">
-                <li><a href="/togkf/index">Home</a></li>
-                <li><a href="/togkf/about">About</a></li>
-                <li><a href="/togkf/history">History</a></li>
-                <li><a href="/togkf/dojo">Dojos</a></li>
-                <li><a href="/togkf/events">Events</a></li>
-                <li><a href="/togkf/gallery">Gallery</a></li>
-                <li><a href="/togkf/contact">Contact</a></li>
-                <li><a href="/togkf/affiliate" class="active">Join Us</a></li>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/history">History</a></li>
+                <li><a href="/affiliate" class="active">Join Us</a></li>
+                <li><a href="/skgk">Sanbo</a></li>
+                <li><a href="/dojo">Dojos</a></li>
+                <li><a href="/events">Events</a></li>
+                <li><a href="/gallery">Gallery</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -64,14 +65,18 @@
                     <div class="join-us-info">
                         <h2>Join TOGKF India</h2>
                         <div class="divider"></div>
-                        <p>Select the affiliation level that best represents your organisation or yourself, and complete the registration form. Our team will review your application and reach out to you shortly.</p>
-                        
+                        <p>Select the affiliation level that best represents your organisation or yourself, and complete
+                            the registration form. Our team will review your application and reach out to you shortly.
+                        </p>
+
                         <div class="affiliation-types" id="affiliationTypes">
                             <label class="affiliation-card selected" id="card-dojo" for="type-dojo">
                                 <input type="radio" name="affiliation_type" id="type-dojo" value="Dojo" checked>
                                 <span class="selected-badge">Selected</span>
                                 <span class="card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
                                         <path d="M12 2v3" />
                                         <path d="M2 12 Q8 10 12 5 Q16 10 22 12" />
                                         <path d="M2 12h20" />
@@ -91,12 +96,14 @@
                                 <input type="radio" name="affiliation_type" id="type-organization" value="Organization">
                                 <span class="selected-badge">Selected</span>
                                 <span class="card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="16" y="16" width="6" height="6" rx="1"/>
-                                        <rect x="2" y="16" width="6" height="6" rx="1"/>
-                                        <rect x="9" y="2" width="6" height="6" rx="1"/>
-                                        <path d="M5 16v-3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/>
-                                        <path d="M12 8v4"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <rect x="16" y="16" width="6" height="6" rx="1" />
+                                        <rect x="2" y="16" width="6" height="6" rx="1" />
+                                        <rect x="9" y="2" width="6" height="6" rx="1" />
+                                        <path d="M5 16v-3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3" />
+                                        <path d="M12 8v4" />
                                     </svg>
                                 </span>
                                 <h3>Organization</h3>
@@ -104,12 +111,15 @@
                             </label>
 
                             <label class="affiliation-card" id="card-individual" for="type-individual">
-                                <input type="radio" name="affiliation_type" id="type-individual" value="Individual Member">
+                                <input type="radio" name="affiliation_type" id="type-individual"
+                                    value="Individual Member">
                                 <span class="selected-badge">Selected</span>
                                 <span class="card-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-                                        <circle cx="12" cy="7" r="4"/>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+                                        <circle cx="12" cy="7" r="4" />
                                     </svg>
                                 </span>
                                 <h3>Individual Member</h3>
@@ -123,7 +133,7 @@
                         <p class="form-tagline">Please fill in the required details accurately to proceed.</p>
 
                         <form id="joinUsForm" novalidate>
-                            
+
                             <div class="form-section">
                                 <h3 class="section-title">Personal / Contact Details</h3>
                                 <div class="form-row form-row-3">
@@ -215,7 +225,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="button" id="addSocialLinkBtn" class="btn-add-more" onclick="addSocialLink()">+ Add Social Page</button>
+                                    <button type="button" id="addSocialLinkBtn" class="btn-add-more"
+                                        onclick="addSocialLink()">+ Add Social Page</button>
                                 </div>
                             </div>
 
@@ -225,7 +236,8 @@
                                     <h3 class="section-title">Instructor Background</h3>
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label>How many years practicing Okinawan Goju Ryu? <span class="required-star">*</span></label>
+                                            <label>How many years practicing Okinawan Goju Ryu? <span
+                                                    class="required-star">*</span></label>
                                             <input type="number" id="yearsPracticing" name="yearsPracticing" min="0">
                                         </div>
                                         <div class="form-group">
@@ -246,7 +258,8 @@
                                     <h3 class="section-title">Organisation / Dojo Details</h3>
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label>Organisation / Dojo Name (registered as) <span class="required-star">*</span></label>
+                                            <label>Organisation / Dojo Name (registered as) <span
+                                                    class="required-star">*</span></label>
                                             <input type="text" id="orgName" name="orgName">
                                         </div>
                                         <div class="form-group">
@@ -256,15 +269,18 @@
                                     </div>
                                     <div class="form-row form-row-3">
                                         <div class="form-group" id="numDojosGroup">
-                                            <label>How many Dojos do you have? <span class="required-star">*</span></label>
+                                            <label>How many Dojos do you have? <span
+                                                    class="required-star">*</span></label>
                                             <input type="number" id="numDojos" name="numDojos" min="0">
                                         </div>
                                         <div class="form-group">
-                                            <label>How many Black Belt members? <span class="required-star">*</span></label>
+                                            <label>How many Black Belt members? <span
+                                                    class="required-star">*</span></label>
                                             <input type="number" id="numBlackBelts" name="numBlackBelts" min="0">
                                         </div>
                                         <div class="form-group">
-                                            <label>How many students do you have? <span class="required-star">*</span></label>
+                                            <label>How many students do you have? <span
+                                                    class="required-star">*</span></label>
                                             <input type="number" id="numStudents" name="numStudents" min="0">
                                         </div>
                                     </div>
@@ -276,7 +292,7 @@
                             </div>
 
                             <hr class="section-divider">
-                            
+
                             <div class="form-section">
                                 <h3 class="section-title">Address Details</h3>
                                 <div class="form-group">
@@ -340,7 +356,8 @@
                             <div class="form-section">
                                 <h3 class="section-title">Join TOGKF</h3>
                                 <div class="form-group">
-                                    <label>Why do you want to join the TOGKF? <span class="required-star">*</span></label>
+                                    <label>Why do you want to join the TOGKF? <span
+                                            class="required-star">*</span></label>
                                     <textarea id="whyJoin" name="whyJoin" rows="4"></textarea>
                                 </div>
                             </div>
@@ -367,14 +384,15 @@
                 <div class="footer-section">
                     <h3>Explore</h3>
                     <ul class="footer-explore-grid">
-                        <li><a href="/togkf/index">Home</a></li>
-                        <li><a href="/togkf/about">About Us</a></li>
-                        <li><a href="/togkf/history">History</a></li>
-                        <li><a href="/togkf/dojo">Find a Dojo</a></li>
-                        <li><a href="/togkf/events">Events</a></li>
-                        <li><a href="/togkf/gallery">Gallery</a></li>
-                        <li><a href="/togkf/contact">Contact</a></li>
-                        <li><a href="/togkf/affiliate">Join Us</a></li>
+                        <li><a href="/index">Home</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/history">History</a></li>
+                        <li><a href="/affiliate">Join Us</a></li>
+                        <li><a href="/skgk">Sanbo</a></li>
+                        <li><a href="/dojo">Find a Dojo</a></li>
+                        <li><a href="/events">Events</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -384,7 +402,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 TOGKF India. All Rights Reserved.</p>
+                <p>&copy; 2026 TOGKF India. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
