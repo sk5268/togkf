@@ -40,15 +40,51 @@ function doPost(e) {
 
     // 2. Generate HTML report from template
     const htmlTemplate = HtmlService.createTemplateFromFile('pdf_template');
+    
+    // Membership type mapping
+    const membershipTypeMap = {
+      'Individual Member': 'Individual Membership',
+      'Dojo': 'Dojo Membership',
+      'Organization': 'Organization Membership'
+    };
+    const membershipType = membershipTypeMap[data.affiliation_type] || data.affiliation_type;
+
+    // Date formatter helper
+    const formatDate = (dateStr) => {
+      if (!dateStr || dateStr === 'N/A') return 'N/A';
+      try {
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+      } catch (e) {
+        return dateStr;
+      }
+    };
+
+    // Parse social links string "Platform: URL | Platform: URL" into an array
+    let socialLinksArray = [];
+    if (data.socialLinks && typeof data.socialLinks === 'string') {
+      socialLinksArray = data.socialLinks.split(' | ').map(link => {
+        const parts = link.split(': ');
+        return { 
+          platform: parts[0], 
+          url: parts.slice(1).join(': ') 
+        };
+      }).filter(l => l.url.trim().length > 0);
+    }
+    
     htmlTemplate.d = data;
+    htmlTemplate.membershipType = membershipType;
+    htmlTemplate.socialLinksArray = socialLinksArray;
+    htmlTemplate.formatDate = formatDate;
     const htmlContent = htmlTemplate.evaluate().getContent();
     const htmlBlob = Utilities.newBlob(htmlContent, 'text/html', 'TOGKF_Affiliation_' + data.lastName + '.html');
 
-    // 3. Email Sensei Raja Vardhan
-    const senseiEmail = "srimadhavak@gmail.com"; 
+    // 3. Email
+    const senseiEmails = "srimadhavak@gmail.com, mvijaykr@hotmail.com"; 
     const fullName = data.prefix + ' ' + data.firstName + ' ' + data.lastName;
     
-    GmailApp.sendEmail(senseiEmail, 'New ' + data.affiliation_type + ' Application: ' + fullName, 
+    GmailApp.sendEmail(senseiEmails, 'New ' + data.affiliation_type + ' Application: ' + fullName, 
       "Hello Sensie,\n\nA new affiliation request has been submitted via the website. Please find the application details attached.\n\nOpen the .html file in any browser to view the formatted report.", {
       attachments: [htmlBlob],
       name: "TOGKF India Admin"

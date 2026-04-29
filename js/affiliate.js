@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
             await fetch(
-                'https://script.google.com/macros/s/AKfycbzlIUTiDr0eJ3upFMk2EmjspZ9EAU7ZizsxT-bGt31IpMG67ABfuZNuu8KQEt7aCbR8/exec',
+                'https://script.google.com/macros/s/AKfycbwjKgesNmkssMYiJGyjL0N5iARHh33-E-W8gLAMKvV9PhxWFWP43LYFd3c9PeFoYiEC/exec',
                 {
                     method: 'POST',
                     mode: 'no-cors',
