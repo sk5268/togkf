@@ -1,63 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
-      <loc>https://www.togkf.in/</loc>
-      <lastmod>2026-01-01</lastmod>
+      <loc>https://togkf.in/</loc>
+      <lastmod>2026-05-06</lastmod>
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://www.togkf.in/index</loc>
-      <lastmod>2026-01-01</lastmod>
-      <changefreq>daily</changefreq>
-      <priority>1.0</priority>
-   </url>
-   <url>
-      <loc>https://www.togkf.in/about</loc>
-      <lastmod>2026-01-01</lastmod>
+      <loc>https://togkf.in/about</loc>
+      <lastmod>2026-05-06</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.togkf.in/history</loc>
-      <lastmod>2026-01-01</lastmod>
+      <loc>https://togkf.in/history</loc>
+      <lastmod>2026-05-06</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.togkf.in/affiliate</loc>
-      <lastmod>2026-04-29</lastmod>
+      <loc>https://togkf.in/affiliate</loc>
+      <lastmod>2026-05-06</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.togkf.in/dojo</loc>
-      <lastmod>2026-01-01</lastmod>
+      <loc>https://togkf.in/skgk</loc>
+      <lastmod>2026-05-06</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.togkf.in/events</loc>
-      <lastmod>2026-01-01</lastmod>
+      <loc>https://togkf.in/dojo</loc>
+      <lastmod>2026-05-06</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   <url>
+      <loc>https://togkf.in/events</loc>
+      <lastmod>2026-05-06</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.togkf.in/gallery</loc>
-      <lastmod>2026-01-01</lastmod>
+      <loc>https://togkf.in/gallery</loc>
+      <lastmod>2026-05-06</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
-      <loc>https://www.togkf.in/contact</loc>
-      <lastmod>2026-01-01</lastmod>
+      <loc>https://togkf.in/contact</loc>
+      <lastmod>2026-05-06</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
-   </url>
-   <url>
-      <loc>https://www.togkf.in/skgk</loc>
-      <lastmod>2026-04-16</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.8</priority>
    </url>
 </urlset>

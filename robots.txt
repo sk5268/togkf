@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /*.jpg$
-Disallow: /*.jpeg$
-Disallow: /*.png$
-Sitemap: https://www.togkf.in/sitemap.xml
+Sitemap: https://togkf.in/sitemap.xml
