@@ -5,14 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Events - TOGKF India</title>
-  <meta name="description" content="Upcoming seminars, gradings and events organized by TOGKF India. Find dates, registration and past event highlights." />
-    
+  <meta name="description"
+    content="Upcoming seminars, gradings and events organized by TOGKF India. Find dates, registration and past event highlights." />
+
   <!-- Canonical URL -->
   <link rel="canonical" href="https://togkf.in/events">
-  
+
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Events - TOGKF India">
-  <meta property="og:description" content="Upcoming seminars, gradings and events organized by TOGKF India. Find dates, registration and past event highlights.">
+  <meta property="og:description"
+    content="Upcoming seminars, gradings and events organized by TOGKF India. Find dates, registration and past event highlights.">
   <meta property="og:image" content="https://togkf.in/assets/togkf_logo.png">
   <meta property="og:url" content="https://togkf.in/events">
   <meta property="og:type" content="website">
@@ -21,7 +23,8 @@
   <!-- Twitter Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Events - TOGKF India">
-  <meta name="twitter:description" content="Upcoming seminars, gradings and events organized by TOGKF India. Find dates, registration and past event highlights.">
+  <meta name="twitter:description"
+    content="Upcoming seminars, gradings and events organized by TOGKF India. Find dates, registration and past event highlights.">
   <meta name="twitter:image" content="https://togkf.in/assets/togkf_logo.png">
 
   <!-- Favicon -->
@@ -32,6 +35,7 @@
   <meta name="apple-mobile-web-app-title" content="TOGKF" />
   <link rel="manifest" href="/assets/logos/site.webmanifest" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6S437FDSE"></script>
   <script>
@@ -76,14 +80,39 @@
         <h1 style="color: #0a0a0a; font-size: 3rem;">Events</h1>
         <p style="max-width: 700px; margin: 1rem auto; color: #666; font-size: 1.1rem;">
           Stay up to date with TOGKF India seminars, gradings, and workshops.
-          We are in the process of updating our calendar for the upcoming season.
         </p>
       </div>
     </section>
 
-    <section class="content-section fade-in-section" style="padding: 10rem 0; text-align: center;">
+    <!-- Ongoing Events Section -->
+    <section id="ongoing-section" class="content-section fade-in-section" style="display: none; padding: 4rem 0; background: #f7f7f7;">
+      <div class="container" style="max-width: 1100px;">
+        <h2 class="event-title">Ongoing Events</h2>
+        <div id="ongoing-events"></div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="upcoming-section" class="content-section fade-in-section" style="display: none; padding: 4rem 0;">
+      <div class="container" style="max-width: 1100px;">
+        <h2 class="event-title">Upcoming Events</h2>
+        <div id="upcoming-events"></div>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <section id="events-loading" class="content-section" style="padding: 10rem 0; text-align: center;">
       <div class="container">
-        <h2 id="upcoming-events" style="font-size: 3rem; margin-bottom: 2rem;">Stay Tuned</h2>
+        <div class="loader"></div>
+        <p style="font-size: 1.2rem; color: #666; margin-top: 2rem;">Loading events...</p>
+      </div>
+    </section>
+
+    <!-- Fallback / No Events -->
+    <section id="no-events" class="content-section fade-in-section"
+      style="display: none; padding: 10rem 0; text-align: center;">
+      <div class="container">
+        <h2 style="font-size: 3rem; margin-bottom: 2rem;">Stay Tuned</h2>
         <p style="font-size: 1.4rem; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.8;">
           We are currently scheduling our next series of national seminars, workshops, and black belt gradings.
           Check back soon for upcoming dates and registration details.
@@ -94,33 +123,487 @@
       </div>
     </section>
 
-    <section class="content-section fade-in-section" aria-labelledby="past-events">
-      <div class="container">
-        <h2 id="past-events">Past Events</h2>
-        <p style="color: #666; margin-bottom: 1rem;">Highlights and photo galleries from recent events.</p>
-
-        <div class="card-grid">
-          <article class="card">
-            <h3>Summer Training Camp 2024</h3>
-            <p class="event-date"><time datetime="2024-06">June 2024</time> • Mumbai</p>
-            <p class="event-meta">A week-long intensive camp focusing on kata, conditioning and partner techniques.</p>
-            <p style="margin-top: 1rem; color: #444;">An immersive training experience that brought students from
-              multiple dojos together for focused practice and learning.</p>
-            <a href="/gallery" class="btn">View Photos</a>
-          </article>
-
-          <article class="card">
-            <h3>Regional Tournament 2024</h3>
-            <p class="event-date"><time datetime="2024-09">September 2024</time> • Hyderabad</p>
-            <p class="event-meta">Competition and demonstrations highlighting dedication and sportsmanship across the
-              federation.</p>
-            <p style="margin-top: 1rem; color: #444;">Competitors from various dojos competed across multiple
-              categories. The event included demonstrations and community outreach.</p>
-            <a href="/gallery" class="btn">View Photos</a>
-          </article>
-        </div>
+    <!-- Past Events Section -->
+    <section id="past-section" class="content-section fade-in-section" style="display: none; padding: 4rem 0; background: #f7f7f7;">
+      <div class="container" style="max-width: 1100px;">
+        <h2 class="event-title">Past Events</h2>
+        <p style="color: #666; margin-bottom: 2rem;">Highlights and records from our previous gatherings.</p>
+        <div id="past-events"></div>
       </div>
     </section>
+
+
+    <style>
+      .loader {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid var(--accent-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* ===========================
+         ONGOING: Featured horizontal cards
+         =========================== */
+      #ongoing-events {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+
+      .event-featured {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+        overflow: hidden;
+        border-left: 5px solid var(--accent-color);
+        transition: var(--transition);
+      }
+
+      .event-featured:hover {
+        box-shadow: 0 8px 36px rgba(0,0,0,0.12);
+        transform: translateY(-4px);
+      }
+
+      .event-featured-img {
+        width: 100%;
+        height: 100%;
+        min-height: 280px;
+        object-fit: cover;
+        display: block;
+        background: #f0f0f0;
+      }
+
+      .event-featured-body {
+        padding: 2rem 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .event-status-badge {
+        display: inline-block;
+        padding: 0.3rem 0.9rem;
+        background: var(--accent-color);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border-radius: 3px;
+        width: fit-content;
+        margin-bottom: 0.25rem;
+      }
+
+      .event-status-badge.upcoming-badge {
+        background: #2e7d32;
+      }
+
+      .event-featured-body .event-date {
+        display: inline-block;
+        color: var(--accent-color);
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .event-featured-body h3 {
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.25;
+      }
+
+      .event-card-location {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        color: #777;
+        font-size: 0.92rem;
+      }
+
+      .event-card-desc {
+        margin: 0.75rem 0;
+        color: #555;
+        font-size: 1rem;
+        line-height: 1.65;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+
+      /* Placeholder for cards without image */
+      .event-featured-noimg {
+        grid-template-columns: 1fr;
+      }
+
+      /* ===========================
+         UPCOMING: 2-col horizontal mini cards
+         =========================== */
+      #upcoming-events {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .event-horizontal {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+        overflow: hidden;
+        border-left: 4px solid #2e7d32;
+        transition: var(--transition);
+      }
+
+      .event-horizontal:hover {
+        box-shadow: 0 6px 28px rgba(0,0,0,0.1);
+        transform: translateY(-3px);
+      }
+
+      .event-horizontal-img {
+        width: 100%;
+        height: 100%;
+        min-height: 200px;
+        object-fit: cover;
+        display: block;
+        background: #f0f0f0;
+      }
+
+      .event-horizontal-body {
+        padding: 1.5rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.35rem;
+      }
+
+      .event-horizontal-body h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.25rem;
+        line-height: 1.3;
+      }
+
+      .event-horizontal-body .event-date {
+        display: inline-block;
+        color: var(--accent-color);
+        font-weight: 700;
+        font-size: 0.88rem;
+      }
+
+      .event-horizontal-body .event-card-desc {
+        font-size: 0.92rem;
+        -webkit-line-clamp: 2;
+        margin: 0.4rem 0;
+      }
+
+      .event-horizontal-noimg {
+        grid-template-columns: 1fr;
+      }
+
+      /* ===========================
+         PAST: Timeline list (no images)
+         =========================== */
+      #past-events {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .event-timeline-item {
+        display: grid;
+        grid-template-columns: 100px 1fr auto;
+        align-items: center;
+        gap: 2rem;
+        padding: 1.5rem 2rem;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        transition: var(--transition);
+      }
+
+      .event-timeline-item:first-child {
+        border-radius: 6px 6px 0 0;
+      }
+
+      .event-timeline-item:last-child {
+        border-bottom: none;
+        border-radius: 0 0 6px 6px;
+      }
+
+      .event-timeline-item:only-child {
+        border-radius: 6px;
+      }
+
+      .event-timeline-item:hover {
+        background: #fafafa;
+      }
+
+      .event-timeline-date {
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      .event-timeline-date .timeline-month {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--accent-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .event-timeline-date .timeline-day {
+        display: block;
+        font-size: 2rem;
+        font-weight: 900;
+        color: #222;
+        font-family: var(--font-heading);
+        line-height: 1;
+      }
+
+      .event-timeline-date .timeline-year {
+        display: block;
+        font-size: 0.75rem;
+        color: #999;
+      }
+
+      .event-timeline-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+        text-transform: uppercase;
+      }
+
+      .event-timeline-info .event-card-location {
+        font-size: 0.88rem;
+        color: #888;
+      }
+
+      .event-timeline-info .event-card-desc {
+        font-size: 0.9rem;
+        margin: 0.25rem 0 0;
+        -webkit-line-clamp: 1;
+      }
+
+      .event-timeline-action .btn {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.75rem;
+      }
+
+      /* Shadow wrapper around timeline */
+      #past-events {
+        box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      /* ===========================
+         RESPONSIVE
+         =========================== */
+      @media (max-width: 1024px) {
+        .event-featured {
+          grid-template-columns: 260px 1fr;
+        }
+
+        #upcoming-events {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .event-featured {
+          grid-template-columns: 1fr;
+          border-left: none;
+          border-top: 5px solid var(--accent-color);
+        }
+
+        .event-featured-img {
+          min-height: 220px;
+          max-height: 300px;
+        }
+
+        .event-featured-body {
+          padding: 1.5rem;
+        }
+
+        .event-featured-body h3 {
+          font-size: 1.3rem;
+        }
+
+        .event-horizontal {
+          grid-template-columns: 1fr;
+          border-left: none;
+          border-top: 4px solid #2e7d32;
+        }
+
+        .event-horizontal-img {
+          min-height: 180px;
+          max-height: 250px;
+        }
+
+        .event-horizontal-body {
+          padding: 1.25rem;
+        }
+
+        .event-timeline-item {
+          grid-template-columns: 70px 1fr;
+          gap: 1rem;
+          padding: 1.25rem 1rem;
+        }
+
+        .event-timeline-action {
+          grid-column: 1 / -1;
+        }
+
+        .event-timeline-date .timeline-day {
+          font-size: 1.6rem;
+        }
+
+        .event-timeline-info h3 {
+          font-size: 1rem;
+        }
+      }
+    </style>
+
+    <script>
+      const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby-nxd2_M3D8QD3ePaaXKn0nJTVBG3IxWqbcnh7c-S1jL4Rux4OF9bW_13eDXj7WTj2/exec';
+
+      async function fetchEvents() {
+        const loading = document.getElementById('events-loading');
+        const noEvents = document.getElementById('no-events');
+        const sections = {
+          ongoing: { section: document.getElementById('ongoing-section'), grid: document.getElementById('ongoing-events') },
+          upcoming: { section: document.getElementById('upcoming-section'), grid: document.getElementById('upcoming-events') },
+          past: { section: document.getElementById('past-section'), grid: document.getElementById('past-events') }
+        };
+
+        try {
+          const response = await fetch(SCRIPT_URL);
+          const data = await response.json();
+
+          loading.style.display = 'none';
+
+          let hasAnyEvents = false;
+
+          const cardCreators = {
+            ongoing: createOngoingCard,
+            upcoming: createUpcomingCard,
+            past: createPastCard
+          };
+
+          ['ongoing', 'upcoming', 'past'].forEach(type => {
+            if (data[type] && data[type].length > 0) {
+              hasAnyEvents = true;
+              sections[type].section.style.display = 'block';
+              sections[type].grid.innerHTML = data[type].map(event => cardCreators[type](event)).join('');
+            }
+          });
+
+          if (!hasAnyEvents) {
+            noEvents.style.display = 'block';
+          }
+
+        } catch (error) {
+          console.error('Error fetching events:', error);
+          loading.style.display = 'none';
+          noEvents.style.display = 'block';
+        }
+      }
+
+      function formatDateStr(startDate, endDate) {
+        let dateStr = startDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+        if (endDate && endDate.getTime() !== startDate.getTime()) {
+          dateStr += ` - ${endDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}`;
+        }
+        return dateStr;
+      }
+
+      function createOngoingCard(event) {
+        const startDate = new Date(event.start_date);
+        const endDate = event.end_date ? new Date(event.end_date) : null;
+        const dateStr = formatDateStr(startDate, endDate);
+        const hasImg = !!event.image;
+
+        return `
+        <article class="event-featured ${!hasImg ? 'event-featured-noimg' : ''}">
+          ${hasImg ? `<img src="${event.image}" alt="${event.title}" class="event-featured-img" onerror="this.parentElement.classList.add('event-featured-noimg');this.remove();">` : ''}
+          <div class="event-featured-body">
+            <span class="event-status-badge">Happening Now</span>
+            <p class="event-date">${dateStr}</p>
+            <h3>${event.title}</h3>
+            <span class="event-card-location"><i class="fas fa-map-marker-alt"></i> ${event.location || 'TBA'}</span>
+            <p class="event-card-desc">${event.description || ''}</p>
+          </div>
+        </article>
+        `;
+      }
+
+      function createUpcomingCard(event) {
+        const startDate = new Date(event.start_date);
+        const endDate = event.end_date ? new Date(event.end_date) : null;
+        const dateStr = formatDateStr(startDate, endDate);
+        const hasImg = !!event.image;
+
+        return `
+        <article class="event-horizontal ${!hasImg ? 'event-horizontal-noimg' : ''}">
+          ${hasImg ? `<img src="${event.image}" alt="${event.title}" class="event-horizontal-img" onerror="this.parentElement.classList.add('event-horizontal-noimg');this.remove();">` : ''}
+          <div class="event-horizontal-body">
+            <span class="event-status-badge upcoming-badge">Upcoming</span>
+            <p class="event-date">${dateStr}</p>
+            <h3>${event.title}</h3>
+            <span class="event-card-location"><i class="fas fa-map-marker-alt"></i> ${event.location || 'TBA'}</span>
+            <p class="event-card-desc">${event.description || ''}</p>
+          </div>
+        </article>
+        `;
+      }
+
+      function createPastCard(event) {
+        const startDate = new Date(event.start_date);
+        const month = startDate.toLocaleDateString('en-IN', { month: 'short' });
+        const day = startDate.getDate();
+        const year = startDate.getFullYear();
+
+        return `
+        <article class="event-timeline-item">
+          <div class="event-timeline-date">
+            <span class="timeline-month">${month}</span>
+            <span class="timeline-day">${day}</span>
+            <span class="timeline-year">${year}</span>
+          </div>
+          <div class="event-timeline-info">
+            <h3>${event.title}</h3>
+            <span class="event-card-location"><i class="fas fa-map-marker-alt"></i> ${event.location || 'TBA'}</span>
+            ${event.description ? `<p class="event-card-desc">${event.description}</p>` : ''}
+          </div>
+          <div class="event-timeline-action">
+            <a href="/contact" class="btn" style="padding: 0.5rem 1.2rem; font-size: 0.75rem;">Details</a>
+          </div>
+        </article>
+        `;
+      }
+
+      // Call fetch on load
+      if (SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+        fetchEvents();
+      } else {
+        // For development/demo purposes, show the no-events section if URL not set
+        document.getElementById('events-loading').style.display = 'none';
+        document.getElementById('no-events').style.display = 'block';
+      }
+    </script>
+
   </main>
 
   <footer>
