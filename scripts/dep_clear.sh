@@ -1,0 +1,1 @@
+gh api repos/sk5268/togkf/deployments --jq 'sort_by(.created_at) | reverse | .[1:] | .[].id' | xargs -I {} gh api -X DELETE /repos/sk5268/togkf/deployments/{}

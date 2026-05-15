@@ -1,0 +1,47 @@
+/* --- Cards (dojo.html) --- */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.dojo-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.dojo-layout .card:first-child {
+    grid-column: 1 / -1;
+}
+
+.card {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    border-top: 3px solid transparent;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-top-color: var(--accent-color);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .dojo-layout {
+        grid-template-columns: 1fr;
+    }
+}

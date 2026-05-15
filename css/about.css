@@ -1,0 +1,271 @@
+/* ========================================
+   LINEAGE TREE SECTION - about.html only
+======================================== */
+
+.lineage-section {
+    position: relative;
+    padding: 6rem 0;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+    overflow: hidden;
+}
+
+.lineage-bg-elements {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.seigaiha-pattern {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.03;
+    background-image:
+        radial-gradient(circle at 0% 50%, transparent 70%, rgba(211,47,47,0.3) 70.5%, transparent 71%),
+        radial-gradient(circle at 100% 50%, transparent 70%, rgba(211,47,47,0.3) 70.5%, transparent 71%),
+        radial-gradient(circle at 50% 0%, transparent 70%, rgba(211,47,47,0.3) 70.5%, transparent 71%),
+        radial-gradient(circle at 50% 100%, transparent 70%, rgba(211,47,47,0.3) 70.5%, transparent 71%);
+    background-size: 60px 30px;
+    background-position: 0 0, 30px 15px, 0 0, 30px 15px;
+    animation: waveFloat 20s linear infinite;
+}
+
+@keyframes waveFloat {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(30px); }
+}
+
+.bamboo-left, .bamboo-right {
+    position: absolute; top: 0;
+    width: 80px; height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(76,153,76,0.05) 30%, rgba(76,153,76,0.08) 50%, rgba(76,153,76,0.05) 70%, transparent 100%);
+}
+.bamboo-left { left: 0; }
+.bamboo-right { right: 0; }
+
+.bamboo-left::before, .bamboo-left::after,
+.bamboo-right::before, .bamboo-right::after {
+    content: '';
+    position: absolute;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(100,180,100,0.15) 10%, rgba(100,180,100,0.2) 50%, rgba(100,180,100,0.15) 90%, transparent);
+}
+.bamboo-left::before { left: 20px; }
+.bamboo-left::after  { left: 50px; }
+.bamboo-right::before { right: 20px; }
+.bamboo-right::after  { right: 50px; }
+
+.lineage-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    text-shadow: 0 0 30px rgba(211,47,47,0.3);
+}
+
+.kanji-decoration {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    font-family: "Hiragino Mincho Pro", "Yu Mincho", serif;
+    text-shadow: 0 0 20px rgba(211,47,47,0.5);
+    animation: kanjiPulse 3s ease-in-out infinite;
+}
+
+@keyframes kanjiPulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50%       { opacity: 1; transform: scale(1.05); }
+}
+
+.lineage-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.6);
+    font-style: italic;
+    margin-bottom: 4rem;
+    letter-spacing: 2px;
+}
+
+.lineage-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.lineage-level {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.lineage-level.horizontal-row {
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
+.lineage-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.lineage-level.horizontal-row > .lineage-node.student::before,
+.lineage-level.horizontal-row > .yonesato-branch-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 2px; height: 40px;
+    background: linear-gradient(180deg, var(--accent-color), rgba(211,47,47,0.3));
+}
+
+.lineage-level.horizontal-row > .lineage-node.student::after,
+.lineage-level.horizontal-row > .yonesato-branch-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -4px; left: 50%;
+    transform: translateX(-50%);
+    width: 8px; height: 8px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.lineage-node:hover { transform: translateY(-5px); }
+
+.node-glow {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, rgba(211,47,47,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    animation: glowPulse 4s ease-in-out infinite;
+}
+.node-glow.gold { background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, transparent 70%); }
+.node-glow.india-glow { background: radial-gradient(circle, rgba(255,153,51,0.3) 0%, rgba(19,136,8,0.2) 50%, transparent 70%); }
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.5; transform: translate(-50%,-50%) scale(1); }
+    50%       { opacity: 1; transform: translate(-50%,-50%) scale(1.1); }
+}
+
+.photo-frame { width: 156px; height: 156px; position: relative; z-index: 1; }
+.founder .photo-frame, .master .photo-frame, .grandmaster .photo-frame { width: 182px; height: 182px; }
+.student .photo-frame { width: 130px; height: 130px; }
+
+.photo-placeholder {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+    border: 3px solid var(--accent-color);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    box-shadow: 0 0 20px rgba(211,47,47,0.3), inset 0 0 30px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+}
+.founder .photo-placeholder { border-width: 4px; box-shadow: 0 0 30px rgba(211,47,47,0.4), inset 0 0 30px rgba(0,0,0,0.5); }
+.gold-frame .photo-placeholder, .gold-bg { border-color: #ffd700 !important; box-shadow: 0 0 30px rgba(255,215,0,0.4), inset 0 0 30px rgba(0,0,0,0.5) !important; }
+.india-frame .photo-placeholder, .india-bg { border-color: #ff9933 !important; background: linear-gradient(135deg, #1a2e1a 0%, #2d442d 100%) !important; box-shadow: 0 0 30px rgba(255,153,51,0.4), inset 0 0 30px rgba(0,0,0,0.5) !important; }
+
+.placeholder-icon { font-size: 2.5rem; font-family: "Hiragino Mincho Pro","Yu Mincho",serif; color: rgba(255,255,255,0.4); font-weight: 300; }
+.student .placeholder-icon { font-size: 2rem; font-family: var(--font-heading); }
+
+.frame-decoration { display: none; position: absolute; top: -8px; left: -8px; right: -8px; bottom: -8px; border: 1px solid rgba(211,47,47,0.3); border-radius: 50%; pointer-events: none; }
+.frame-decoration::before, .frame-decoration::after { content: ''; position: absolute; width: 10px; height: 10px; border: 2px solid var(--accent-color); }
+.frame-decoration::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.frame-decoration::after  { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+
+.node-info { text-align: center; margin-top: 1rem; z-index: 1; }
+.sensei-name { font-size: 1.1rem; color: #fff; margin-bottom: 0.25rem; text-transform: none; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.student .sensei-name { font-size: 0.95rem; }
+.sensei-title { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 0.5rem; }
+
+.era-badge { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(211,47,47,0.2); border: 1px solid rgba(211,47,47,0.4); border-radius: 20px; font-size: 0.75rem; color: var(--accent-color); font-weight: 700; letter-spacing: 1px; }
+.gold-badge  { background: rgba(255,215,0,0.2) !important; border-color: rgba(255,215,0,0.4) !important; color: #ffd700 !important; }
+.india-badge { background: linear-gradient(90deg, rgba(255,153,51,0.2), rgba(19,136,8,0.2)) !important; border-color: rgba(255,153,51,0.4) !important; color: #ff9933 !important; }
+
+/* Tree connectors */
+.tree-connector { position: relative; z-index: 1; }
+.tree-connector.vertical { height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.connector-line { width: 2px; height: 100%; background: linear-gradient(180deg, var(--accent-color), rgba(211,47,47,0.3)); position: relative; }
+.connector-line::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; background: var(--accent-color); border-radius: 50%; box-shadow: 0 0 10px var(--accent-color); }
+.connector-ornament { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 36px; height: 36px; background: #1a1a2e; border: 2px solid var(--accent-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 15px rgba(211,47,47,0.3); }
+.connector-ornament span { font-family: "Hiragino Mincho Pro","Yu Mincho",serif; font-size: 1rem; color: var(--accent-color); }
+
+.tree-connector.branch { height: 40px; width: 95%; max-width: 900px; display: flex; flex-direction: column; align-items: center; position: relative; }
+.branch-stem { width: 2px; height: 38px; background: linear-gradient(180deg, var(--accent-color), rgba(211,47,47,0.5)); }
+.branch-horizontal { width: 100%; height: 2px; background: linear-gradient(90deg, transparent 0%, rgba(211,47,47,0.5) 5%, var(--accent-color) 50%, rgba(211,47,47,0.5) 95%, transparent 100%); position: absolute; bottom: 0; }
+
+.yonesato-branch-wrapper { display: flex; flex-direction: column; align-items: center; position: relative; }
+.sub-branch-indicator { display: none; }
+.tree-connector.sub-branch { height: 60px; display: flex; align-items: center; justify-content: center; position: relative; }
+.sub-connector-line { width: 2px; height: 100%; background: linear-gradient(180deg, rgba(255,153,51,0.8), rgba(19,136,8,0.5)); position: relative; margin: 0 auto; }
+.sub-connector-line::before, .sub-connector-line::after { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; border-radius: 50%; }
+.sub-connector-line::before { top: 0; background: #ff9933; box-shadow: 0 0 10px #ff9933; }
+.sub-connector-line::after  { bottom: 0; background: #138808; box-shadow: 0 0 10px #138808; }
+
+.india-branch { position: relative; }
+.india-flag-accent { position: absolute; top: -20px; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: linear-gradient(90deg, #ff9933 33%, #fff 33% 66%, #138808 66%); border-radius: 2px; opacity: 0.7; }
+.highlight-node { position: relative; }
+
+/* Legend */
+.lineage-legend { display: flex; justify-content: center; gap: 3rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.legend-item { display: flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+.legend-icon { width: 16px; height: 16px; border-radius: 50%; border: 2px solid; }
+.founder-icon { border-color: var(--accent-color); background: rgba(211,47,47,0.2); }
+.master-icon  { border-color: #ffd700; background: rgba(255,215,0,0.2); }
+.india-icon   { border-color: #ff9933; background: linear-gradient(135deg, rgba(255,153,51,0.2), rgba(19,136,8,0.2)); }
+
+/* Responsive */
+@media (max-width: 968px) {
+    .lineage-title { font-size: 2rem; gap: 1rem; }
+    .kanji-decoration { font-size: 2.5rem; }
+    .lineage-level.horizontal-row { gap: 1rem; }
+    .tree-connector.branch { width: 90%; }
+    .lineage-legend { gap: 1.5rem; flex-wrap: wrap; }
+}
+
+@media (max-width: 768px) {
+    .lineage-section { padding: 4rem 0; }
+    .lineage-title { font-size: 1.5rem; flex-direction: column; gap: 0.5rem; }
+    .kanji-decoration { font-size: 2rem; }
+    .lineage-subtitle { font-size: 1rem; margin-bottom: 2rem; }
+    .lineage-level.horizontal-row { flex-direction: column; align-items: center; gap: 0.5rem; }
+    .lineage-node { padding: 1rem; }
+    .photo-frame { width: 117px; height: 117px; }
+    .founder .photo-frame, .master .photo-frame, .grandmaster .photo-frame { width: 143px; height: 143px; }
+    .student .photo-frame { width: 104px; height: 104px; }
+    .placeholder-icon { font-size: 1.8rem; }
+    .student .placeholder-icon { font-size: 1.5rem; }
+    .sensei-name { font-size: 1rem; }
+    .student .sensei-name { font-size: 0.9rem; }
+    .tree-connector.vertical { height: 50px; }
+    .connector-ornament { width: 28px; height: 28px; }
+    .connector-ornament span { font-size: 0.8rem; }
+    .tree-connector.branch { height: 40px; width: 60px; }
+    .branch-stem { height: 25px; }
+    .branch-horizontal { display: none; }
+    .lineage-level.horizontal-row > .lineage-node.student::before,
+    .lineage-level.horizontal-row > .lineage-node.student::after,
+    .lineage-level.horizontal-row > .yonesato-branch-wrapper::before,
+    .lineage-level.horizontal-row > .yonesato-branch-wrapper::after { display: none; }
+    .highlight-node::after { display: none; }
+    .tree-connector.sub-branch { height: 40px; }
+    .lineage-legend { flex-direction: column; align-items: center; gap: 1rem; margin-top: 2rem; }
+    .bamboo-left, .bamboo-right { display: none; }
+    .node-glow { width: 120px; height: 120px; }
+}
