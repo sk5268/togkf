@@ -34,8 +34,12 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/logos/apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="TOGKF" />
   <link rel="manifest" href="/assets/logos/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6S437FDSE"></script>
   <script>
@@ -537,7 +541,7 @@
 
         return `
         <article class="event-featured ${!hasImg ? 'event-featured-noimg' : ''}">
-          ${hasImg ? `<img src="${event.image}" alt="${event.title}" class="event-featured-img" onerror="this.parentElement.classList.add('event-featured-noimg');this.remove();">` : ''}
+          ${hasImg ? `<img loading="lazy" src="${event.image}" alt="${event.title}" class="event-featured-img" onerror="this.parentElement.classList.add('event-featured-noimg');this.remove();">` : ''}
           <div class="event-featured-body">
             <span class="event-status-badge">Happening Now</span>
             <p class="event-date">${dateStr}</p>
@@ -557,7 +561,7 @@
 
         return `
         <article class="event-horizontal ${!hasImg ? 'event-horizontal-noimg' : ''}">
-          ${hasImg ? `<img src="${event.image}" alt="${event.title}" class="event-horizontal-img" onerror="this.parentElement.classList.add('event-horizontal-noimg');this.remove();">` : ''}
+          ${hasImg ? `<img loading="lazy" src="${event.image}" alt="${event.title}" class="event-horizontal-img" onerror="this.parentElement.classList.add('event-horizontal-noimg');this.remove();">` : ''}
           <div class="event-horizontal-body">
             <span class="event-status-badge upcoming-badge">Upcoming</span>
             <p class="event-date">${dateStr}</p>
@@ -643,7 +647,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script defer src="js/main.js"></script>
 </body>
 
 </html>
