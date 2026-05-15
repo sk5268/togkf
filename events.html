@@ -191,15 +191,22 @@
         return dateStr;
       }
 
+      function getCleanImageUrl(url) {
+        return url || '';
+      }
+
       function createOngoingCard(event) {
         const startDate = new Date(event.start_date);
         const endDate = event.end_date ? new Date(event.end_date) : null;
         const dateStr = formatDateStr(startDate, endDate);
-        const hasImg = !!event.image;
+        const imageUrl = event.image;
+        const hasImg = !!imageUrl;
+        
+        if (hasImg) console.log('Attempting to load image:', imageUrl);
 
         return `
         <article class="event-featured ${!hasImg ? 'event-featured-noimg' : ''}">
-          ${hasImg ? `<img loading="lazy" src="${event.image}" alt="${event.title}" class="event-featured-img" onerror="this.parentElement.classList.add('event-featured-noimg');this.remove();">` : ''}
+          ${hasImg ? `<img src="${imageUrl}" alt="${event.title}" class="event-featured-img" onerror="console.error('Image load failed:', this.src);this.parentElement.classList.add('event-featured-noimg');this.remove();">` : ''}
           <div class="event-featured-body">
             <span class="event-status-badge">Happening Now</span>
             <p class="event-date">${dateStr}</p>
@@ -215,11 +222,14 @@
         const startDate = new Date(event.start_date);
         const endDate = event.end_date ? new Date(event.end_date) : null;
         const dateStr = formatDateStr(startDate, endDate);
-        const hasImg = !!event.image;
+        const imageUrl = event.image;
+        const hasImg = !!imageUrl;
+        
+        if (hasImg) console.log('Attempting to load image:', imageUrl);
 
         return `
         <article class="event-horizontal ${!hasImg ? 'event-horizontal-noimg' : ''}">
-          ${hasImg ? `<img loading="lazy" src="${event.image}" alt="${event.title}" class="event-horizontal-img" onerror="this.parentElement.classList.add('event-horizontal-noimg');this.remove();">` : ''}
+          ${hasImg ? `<img src="${imageUrl}" alt="${event.title}" class="event-horizontal-img" onerror="console.error('Image load failed:', this.src);this.parentElement.classList.add('event-horizontal-noimg');this.remove();">` : ''}
           <div class="event-horizontal-body">
             <span class="event-status-badge upcoming-badge">Upcoming</span>
             <p class="event-date">${dateStr}</p>
