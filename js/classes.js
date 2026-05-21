@@ -2,35 +2,72 @@ document.addEventListener('DOMContentLoaded', function () {
     // Class Types Selection Logic
     const classCards = document.querySelectorAll('.affiliation-card');
     const classInputs = document.querySelectorAll('input[name="class_type"]');
+
+    // Sections
+    const homeTuitionSection = document.getElementById('homeTuitionSection');
+    const corporateSection = document.getElementById('corporateTrainingSection');
+    const selfDefenceSection = document.getElementById('selfDefenceSection');
     const regularClassSection = document.getElementById('regularClassSection');
+
+    // Inputs inside sections
+    const homeTuitionAge = document.getElementById('homeTuitionAge');
+    const homeTuitionFreq = document.getElementById('homeTuitionFreq');
+
+    const companyName = document.getElementById('companyName');
+    const designation = document.getElementById('designation');
+    const numParticipants = document.getElementById('numParticipants');
+
+    const selfDefenceFormat = document.getElementById('selfDefenceFormat');
+    // size is not strictly required
+
     const dojoLocation = document.getElementById('dojoLocation');
     const classTiming = document.getElementById('classTiming');
 
     function updateClassSelection() {
-        let isRegular = false;
+        let type = '';
 
         classInputs.forEach(input => {
             const card = input.closest('.affiliation-card');
             if (input.checked) {
                 card.classList.add('selected');
-                if (input.value === 'Regular Classes') {
-                    isRegular = true;
-                }
+                type = input.value;
             } else {
                 card.classList.remove('selected');
             }
         });
 
-        if (isRegular) {
+        // Hide all first
+        homeTuitionSection.style.display = 'none';
+        corporateSection.style.display = 'none';
+        selfDefenceSection.style.display = 'none';
+        regularClassSection.style.display = 'none';
+
+        // Remove required
+        const allDynamicInputs = [
+            homeTuitionAge, homeTuitionFreq,
+            companyName, designation, numParticipants,
+            selfDefenceFormat,
+            dojoLocation, classTiming
+        ];
+        allDynamicInputs.forEach(el => el.removeAttribute('required'));
+
+        // Show specific and add required
+        if (type === 'Home Tuition') {
+            homeTuitionSection.style.display = 'block';
+            homeTuitionAge.setAttribute('required', 'required');
+            homeTuitionFreq.setAttribute('required', 'required');
+        } else if (type === 'Corporate Training') {
+            corporateSection.style.display = 'block';
+            companyName.setAttribute('required', 'required');
+            designation.setAttribute('required', 'required');
+            numParticipants.setAttribute('required', 'required');
+        } else if (type === 'Self Defence Training') {
+            selfDefenceSection.style.display = 'block';
+            selfDefenceFormat.setAttribute('required', 'required');
+        } else if (type === 'Regular Classes') {
             regularClassSection.style.display = 'block';
             dojoLocation.setAttribute('required', 'required');
             classTiming.setAttribute('required', 'required');
-        } else {
-            regularClassSection.style.display = 'none';
-            dojoLocation.removeAttribute('required');
-            classTiming.removeAttribute('required');
-            dojoLocation.value = '';
-            classTiming.value = '';
         }
     }
 
@@ -53,29 +90,20 @@ document.addEventListener('DOMContentLoaded', function () {
     // Form validation and fake submission
     const submitBtn = document.getElementById('submitBtn');
     const classesForm = document.getElementById('classesForm');
-    const requiredInputs = classesForm.querySelectorAll('input[required], select[required], textarea[required]');
 
     function checkFormValidity() {
         let isValid = true;
+        const requiredInputs = classesForm.querySelectorAll('input[required], select[required], textarea[required]');
 
         // Remove old error highlights
         classesForm.querySelectorAll('.form-group').forEach(group => group.classList.remove('has-error'));
 
         requiredInputs.forEach(input => {
-            // Only check inputs that are currently required (regularClassSection toggles some)
-            if (input.hasAttribute('required') && !input.value.trim()) {
+            if (!input.value.trim()) {
                 isValid = false;
-                // Add simple error styling class if needed
                 input.closest('.form-group').classList.add('has-error');
             }
         });
-
-        // Additional regular class checks if visible
-        if (regularClassSection.style.display === 'block') {
-             if (!dojoLocation.value || !classTiming.value) {
-                 isValid = false;
-             }
-        }
 
         if (isValid) {
             submitBtn.classList.remove('btn-not-ready');
@@ -104,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 submitBtn.innerHTML = 'Registration Submitted!';
                 submitBtn.style.backgroundColor = '#4caf50';
                 classesForm.reset();
-                updateClassSelection();
+                updateClassSelection(); // Reset specific fields
 
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
