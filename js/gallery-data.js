@@ -1,5 +1,14 @@
 window.galleryData = [
   {
+    "name": "Yudansha Gasshuku_June_2026",
+    "folder": "Yudansha Gasshuku_June_2026",
+    "photos": [
+      "1.jpeg",
+      "2.jpeg",
+      "3.jpeg"
+    ]
+  },
+  {
     "name": "Higaonna Sho Championship_December _2025",
     "folder": "Higaonna Sho Championship_December _2025",
     "photos": [
@@ -12,14 +21,13 @@ window.galleryData = [
     ]
   },
   {
-    "name": "Hyderabad Gasshuku_July_2024",
-    "folder": "Hyderabad Gasshuku_July_2024",
+    "name": "Okinawa Budosai_November_2025",
+    "folder": "Okinawa Budosai_November_2025",
     "photos": [
       "1.jpeg",
       "2.jpeg",
-      "4.jpeg",
-      "5.jpeg",
-      "6.jpeg"
+      "3.jpeg",
+      "4.jpeg"
     ]
   },
   {
@@ -36,13 +44,14 @@ window.galleryData = [
     ]
   },
   {
-    "name": "Okinawa Budosai_November_2025",
-    "folder": "Okinawa Budosai_November_2025",
+    "name": "Hyderabad Gasshuku_July_2024",
+    "folder": "Hyderabad Gasshuku_July_2024",
     "photos": [
       "1.jpeg",
       "2.jpeg",
-      "3.jpeg",
-      "4.jpeg"
+      "4.jpeg",
+      "5.jpeg",
+      "6.jpeg"
     ]
   },
   {
