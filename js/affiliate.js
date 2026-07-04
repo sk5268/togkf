@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
             await fetch(
-                'https://script.google.com/macros/s/AKfycbwjKgesNmkssMYiJGyjL0N5iARHh33-E-W8gLAMKvV9PhxWFWP43LYFd3c9PeFoYiEC/exec',
+                'https://script.google.com/macros/s/AKfycbwqiFATftHwOaUayRZYiurxhFp45KltLpl1gHgmoVMNQxyF3Hqf5TV8cqdQDTsLH1KU/exec',
                 {
                     method: 'POST',
                     mode: 'no-cors',
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             );
 
-            alert('Thank you. TOGKF India has received your affiliation request.');
+            alert('Thank you. TOGKF India has received your affiliation request. An acknowledgment email has been sent to ' + payload.email + '.');
             form.reset();
 
             cards.forEach(function (c) { c.classList.remove('selected'); });

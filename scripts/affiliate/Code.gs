@@ -80,7 +80,7 @@ function doPost(e) {
     const htmlContent = htmlTemplate.evaluate().getContent();
     const htmlBlob = Utilities.newBlob(htmlContent, 'text/html', 'TOGKF_Affiliation_' + data.lastName + '.html');
 
-    // 3. Email
+    // 3. Email to Sensei
     const senseiEmails = "srimadhavak@gmail.com, mvijaykr@hotmail.com"; 
     const fullName = data.prefix + ' ' + data.firstName + ' ' + data.lastName;
     
@@ -89,6 +89,23 @@ function doPost(e) {
       attachments: [htmlBlob],
       name: "TOGKF India Admin"
     });
+
+    // 4. Acknowledgement Email to Applicant
+    const applicantEmail = data.email;
+    if (applicantEmail) {
+      const applicantSubject = 'TOGKF India Affiliation Application Received';
+      const applicantBody = 'Hello ' + data.firstName + ',\n\n' +
+        'Thank you for submitting your application for ' + membershipType + ' with TOGKF India.\n\n' +
+        'We have received your details and our team will review your application shortly.\n\n' +
+        'For your records, we have attached a copy of your application details (as an HTML file) to this email.\n\n' +
+        'Warm regards,\n' +
+        'TOGKF India Admin';
+      
+      GmailApp.sendEmail(applicantEmail, applicantSubject, applicantBody, {
+        attachments: [htmlBlob],
+        name: "TOGKF India Admin"
+      });
+    }
 
     return ContentService.createTextOutput(JSON.stringify({ 'result': 'success' }))
       .setMimeType(ContentService.MimeType.JSON);
