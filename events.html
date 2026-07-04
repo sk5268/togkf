@@ -213,7 +213,10 @@
         <article class="event-featured ${!hasImg ? 'event-featured-noimg' : ''}">
           ${hasImg ? `<img src="${imageUrl}" alt="${event.title}" class="event-featured-img lightbox-trigger" onerror="console.error('Image load failed:', this.src);this.parentElement.classList.add('event-featured-noimg');this.remove();"><span style="display: none;">${event.title}</span>` : ''}
           <div class="event-featured-body">
-            <span class="event-status-badge">Happening Now</span>
+            <div class="event-status-container">
+              <span class="event-status-badge">Happening Now</span>
+              ${event.register_url ? `<a href="${event.register_url}" target="_blank" rel="noopener noreferrer" class="event-register-btn"><i class="fas fa-file-signature"></i> Register</a>` : ''}
+            </div>
             <p class="event-date">${dateStr}</p>
             <h3>${event.title}</h3>
             <span class="event-card-location"><i class="fas fa-map-marker-alt"></i> ${event.location || 'TBA'}</span>
@@ -236,7 +239,10 @@
         <article class="event-horizontal ${!hasImg ? 'event-horizontal-noimg' : ''}">
           ${hasImg ? `<img src="${imageUrl}" alt="${event.title}" class="event-horizontal-img lightbox-trigger" onerror="console.error('Image load failed:', this.src);this.parentElement.classList.add('event-horizontal-noimg');this.remove();"><span style="display: none;">${event.title}</span>` : ''}
           <div class="event-horizontal-body">
-            <span class="event-status-badge upcoming-badge">Upcoming</span>
+            <div class="event-status-container">
+              <span class="event-status-badge upcoming-badge">Upcoming</span>
+              ${event.register_url ? `<a href="${event.register_url}" target="_blank" rel="noopener noreferrer" class="event-register-btn"><i class="fas fa-file-signature"></i> Register</a>` : ''}
+            </div>
             <p class="event-date">${dateStr}</p>
             <h3>${event.title}</h3>
             <span class="event-card-location"><i class="fas fa-map-marker-alt"></i> ${event.location || 'TBA'}</span>

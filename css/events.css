@@ -230,3 +230,38 @@
     .lightbox-close { top: 15px; right: 15px; font-size: 30px; }
     .lightbox-caption { font-size: 1rem; margin-top: 10px; }
 }
+
+/* --- Register Button Container --- */
+.event-status-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+}
+
+.event-register-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.9rem;
+    background-color: var(--accent-color);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 3px;
+    margin-bottom: 0.25rem;
+    transition: var(--transition);
+}
+
+.event-register-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+}
+
+.event-register-btn i {
+    font-size: 0.8rem;
+}
