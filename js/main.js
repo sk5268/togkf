@@ -70,6 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
             caption: img.nextElementSibling ? img.nextElementSibling.textContent : ''
         }));
 
+        // Hide navigation buttons if there is 1 or fewer images
+        if (images.length <= 1) {
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'none';
+        } else {
+            if (prevBtn) prevBtn.style.display = 'block';
+            if (nextBtn) nextBtn.style.display = 'block';
+        }
+
         const openLightbox = (index) => {
             currentIndex = index;
             lightboxImg.src = images[currentIndex].src;

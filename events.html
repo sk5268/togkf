@@ -172,6 +172,11 @@
             }
           });
 
+          // Initialize lightbox for dynamically added event images
+          if (window.initLightbox) {
+            window.initLightbox();
+          }
+
           if (!hasAnyEvents) {
             noEvents.style.display = 'block';
           }
@@ -206,7 +211,7 @@
 
         return `
         <article class="event-featured ${!hasImg ? 'event-featured-noimg' : ''}">
-          ${hasImg ? `<img src="${imageUrl}" alt="${event.title}" class="event-featured-img" onerror="console.error('Image load failed:', this.src);this.parentElement.classList.add('event-featured-noimg');this.remove();">` : ''}
+          ${hasImg ? `<img src="${imageUrl}" alt="${event.title}" class="event-featured-img lightbox-trigger" onerror="console.error('Image load failed:', this.src);this.parentElement.classList.add('event-featured-noimg');this.remove();"><span style="display: none;">${event.title}</span>` : ''}
           <div class="event-featured-body">
             <span class="event-status-badge">Happening Now</span>
             <p class="event-date">${dateStr}</p>
@@ -229,7 +234,7 @@
 
         return `
         <article class="event-horizontal ${!hasImg ? 'event-horizontal-noimg' : ''}">
-          ${hasImg ? `<img src="${imageUrl}" alt="${event.title}" class="event-horizontal-img" onerror="console.error('Image load failed:', this.src);this.parentElement.classList.add('event-horizontal-noimg');this.remove();">` : ''}
+          ${hasImg ? `<img src="${imageUrl}" alt="${event.title}" class="event-horizontal-img lightbox-trigger" onerror="console.error('Image load failed:', this.src);this.parentElement.classList.add('event-horizontal-noimg');this.remove();"><span style="display: none;">${event.title}</span>` : ''}
           <div class="event-horizontal-body">
             <span class="event-status-badge upcoming-badge">Upcoming</span>
             <p class="event-date">${dateStr}</p>
@@ -275,6 +280,17 @@
         document.getElementById('no-events').style.display = 'block';
       }
     </script>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content">
+        <img loading="lazy" id="lightbox-img" src="" alt="Event Image Large">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+      </div>
+      <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+      <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+    </div>
 
   </main>
 
