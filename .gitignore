@@ -1,2 +1,6 @@
 .DS_Store
 todo.md
+blog/
+blogs.html
+*__pycache__
+*
