@@ -57,8 +57,28 @@ function triggerGithubDeploy() {
   }
 }
 
+function getBlogSpreadsheet() {
+  const props = PropertiesService.getScriptProperties();
+  const spreadsheetId = props.getProperty('SPREADSHEET_ID');
+
+  if (spreadsheetId) {
+    return SpreadsheetApp.openById(spreadsheetId);
+  }
+
+  // Fallback when run from the bound sheet (e.g. publishBlog button).
+  const active = SpreadsheetApp.getActiveSpreadsheet();
+  if (active) {
+    return active;
+  }
+
+  throw new Error(
+    'SPREADSHEET_ID not set in Script Properties. ' +
+    'Add your sheet ID (from the sheet URL) and redeploy the web app.'
+  );
+}
+
 function getVerifiedPosts() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = getBlogSpreadsheet();
   const sheet = ss.getSheets()[0];
   if (!sheet) {
     throw new Error('No sheets found in the spreadsheet.');

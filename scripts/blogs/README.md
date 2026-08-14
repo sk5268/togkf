@@ -17,12 +17,15 @@
 1. Open the blog Google Sheet → **Extensions → Apps Script**
 2. Paste [`Code.gs`](Code.gs) and save
 3. **Project Settings → Script Properties** — add:
-   - `GITHUB_TOKEN` — fine-grained PAT with **Actions: Read and write** on `sk5268/togkf`
+   - `SPREADSHEET_ID` — your sheet ID from the URL (`docs.google.com/spreadsheets/d/THIS_PART/edit`)
+   - `GITHUB_TOKEN` — fine-grained PAT with **Contents: Read and write** + **Actions: Read and write** on `sk5268/togkf`
    - `GITHUB_REPO` — `sk5268/togkf` (optional; this is the default)
 4. **Deploy → New deployment → Web app**
    - Execute as: Me
    - Who has access: **Anyone** (required — not "Anyone with Google account")
 5. Copy the Web App URL → add as GitHub repo secret `BLOG_SCRIPT_URL`
+
+> After any Code.gs change, use **Deploy → Manage deployments → Edit → New version → Deploy** so the live URL picks up changes.
 
 ## Publish button in the sheet
 
