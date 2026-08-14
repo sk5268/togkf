@@ -26,8 +26,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../css/common.css">
-  <link rel="stylesheet" href="../../css/blogs.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/blogs.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" /></noscript>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6S437FDSE"></script>
@@ -43,7 +43,7 @@
   <header class="dark" role="banner">
     <nav role="navigation" aria-label="Main Navigation">
       <a href="/" class="logo">
-        <img src="../../assets/togkf_logo.png" alt="TOGKF India logo" />
+        <img src="/assets/togkf_logo.png" alt="TOGKF India logo" />
         TOGKF <span>INDIA</span>
       </a>
       <ul class="nav-links">
@@ -67,15 +67,15 @@
   </header>
 
   <main style="padding-top: 80px;">
-    <section class="content-section fade-in-section" style="padding: 4rem 0;">
+    <section class="content-section fade-in-section is-visible" style="padding: 4rem 0;">
       <div class="container" style="max-width: 900px;">
         <nav class="blog-article-nav">
           <a href="/blogs" class="blog-back-link"><i class="fas fa-arrow-left"></i> All articles</a>
         </nav>
-        <header class="blog-article-header">
+        <div class="blog-article-header">
           <time class="blog-date" datetime="{{DATE_ISO}}">{{DATE_DISPLAY}}</time>
           <h1>{{TITLE}}</h1>
-        </header>
+        </div>
         {{HERO_IMAGE}}
         <div class="blog-article-body">
           {{BODY}}
@@ -118,7 +118,7 @@
     </div>
   </footer>
 
-  <script defer src="../../js/main.js"></script>
+  <script defer src="/js/main.js"></script>
 </body>
 
 </html>
