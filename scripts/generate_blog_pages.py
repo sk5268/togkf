@@ -6,6 +6,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 import urllib.error
 import urllib.request
@@ -37,12 +38,58 @@ def load_template(name):
 
 
 def fetch_posts(script_url):
-    req = urllib.request.Request(script_url, headers={'User-Agent': 'togkf-blog-generator/1.0'})
-    with urllib.request.urlopen(req, timeout=60) as response:
-        data = json.loads(response.read().decode('utf-8'))
+    script_url = script_url.strip()
+    raw = _fetch_url(script_url)
+
+    if not raw:
+        raise RuntimeError(
+            'Apps Script returned an empty response. '
+            'Open BLOG_SCRIPT_URL in a browser — it should show {"posts":[...]}. '
+            'Ensure the web app is deployed with access set to "Anyone".'
+        )
+
+    try:
+        data = json.loads(raw)
+    except json.JSONDecodeError:
+        preview = raw[:300].replace('\n', ' ')
+        raise RuntimeError(
+            'Apps Script did not return JSON. '
+            'Open BLOG_SCRIPT_URL in a browser — it should show {"posts":[...]}. '
+            f'Response preview: {preview}'
+        )
+
     if 'error' in data:
         raise RuntimeError(data['error'])
     return data.get('posts', [])
+
+
+def _fetch_url(url):
+    """Fetch URL body. Prefer curl -L for Google Apps Script redirect chains."""
+    if shutil.which('curl'):
+        result = subprocess.run(
+            ['curl', '-sL', '--max-time', '60', url],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f'curl failed ({result.returncode}): {result.stderr.strip()}')
+        return result.stdout.strip()
+
+    headers = {'User-Agent': 'Mozilla/5.0 (compatible; togkf-blog-generator/1.0)'}
+    current_url = url
+    for _ in range(8):
+        req = urllib.request.Request(current_url, headers=headers)
+        with urllib.request.urlopen(req, timeout=60) as response:
+            raw = response.read().decode('utf-8').strip()
+            final_url = response.geturl()
+        if raw:
+            return raw
+        if final_url != current_url:
+            current_url = final_url
+            continue
+        break
+    return ''
 
 
 def escape(text):
