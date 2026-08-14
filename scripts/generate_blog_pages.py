@@ -52,6 +52,11 @@ def fetch_posts(script_url):
         data = json.loads(raw)
     except json.JSONDecodeError:
         preview = raw[:300].replace('\n', ' ')
+        if 'accounts.google.com' in raw or 'signin' in raw.lower():
+            raise RuntimeError(
+                'Apps Script requires Google sign-in. Redeploy the web app with '
+                '"Who has access" set to Anyone (not "Anyone with Google account").'
+            )
         raise RuntimeError(
             'Apps Script did not return JSON. '
             'Open BLOG_SCRIPT_URL in a browser — it should show {"posts":[...]}. '

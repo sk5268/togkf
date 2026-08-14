@@ -21,7 +21,7 @@
    - `GITHUB_REPO` — `sk5268/togkf` (optional; this is the default)
 4. **Deploy → New deployment → Web app**
    - Execute as: Me
-   - Who has access: Anyone
+   - Who has access: **Anyone** (required — not "Anyone with Google account")
 5. Copy the Web App URL → add as GitHub repo secret `BLOG_SCRIPT_URL`
 
 ## Publish button in the sheet
