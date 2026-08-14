@@ -2,5 +2,5 @@
 todo.md
 blog/
 blogs.html
-*__pycache__
-*
+__pycache__/
+*.pyc
